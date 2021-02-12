@@ -1,0 +1,32 @@
+Dynamic Host Configuration Protocol (DHCP) est un protocole client-serveur qui a pour objet d’affecter 
+automatiquement une adresse IP ainsi que des paramètres fonctionnels aux hôtes du réseau pour une durée
+ déterminée.
+Il se base sur les protocoles UDP et IP.
+
+UDP/IP est un protocole qui permet justement d'utiliser des numéros de ports en plus des adresses IP 
+(On l'appelle UDP/IP car il fonctionne au dessus d'IP).
+
+IP s'occupe des adresses IP et UDP s'occupe des ports.
+
+Avantages
+    Configuration fiable et simple de réseaux TCP/IP
+    Minimisation du risque de conflits d’adresses
+    Les postes itinérants sont plus faciles à gérer (PC portable)
+    L’économie des adresses IP
+        Exemple: Les FAI
+        Avec DHCP, seules les machines connectées en ligne ont une @ IP
+    Contrôle centralisé de l’utilisation des adresses IP
+    Le changement de la valeur d’un paramètre au niveau du serveur DHCP (exemple: passerelle par défaut) 
+    est pris en compte par tous les clients du serveur Changement facile
+        Dans le cas de l’adressage statique, il faudrait reconfigurer toutes les machines manuellement.
+
+Inconvénients
+    Les trames de diffusion pour obtenir les adresses chargent le réseau
+    Risque de graves goulots d’étranglement sur le réseau lors des démarrages synchronisés
+        L’administrateur doit donc réfléchir à l’organisation de son réseau
+    Nécessité d’un équipement serveur pour chaque zone de diffusion
+        Compromis nombre de serveurs / zone de diffusion
+
+
+On installe le service via la commande
+#apt-get install isc-dhcp-server

@@ -1,0 +1,85 @@
+# vagrant/Vagrantfile
+
+VAGRANTFILE_API_VERSION = "2" #version de vagrant utiliser
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"        #on renseigne le box a lancer(telechargement ou demarrage)
+  config.ssh.insert_key = false            #utilise la clé par defaut  pour la connexion ssh pas consieller
+
+  config.vm.provider :virtualbox do |v|   #utilise virtualbox comme fournisseur
+    v.name = "tdsi"
+    v.memory = 1024
+    v.cpus = 1
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]#active le resoveur d'hote dns [facultatif]
+    v.customize ["modifyvm", :id, "--ioapic", "on"]             
+  end
+
+  config.vm.hostname = "tdsi"  #le nom d'hote de la machine
+  config.vm.network :private_network, ip: "192.168.33.33"  
+   #on creer un reseau privé puis on donne un ip static
+
+  config.vm.define :tdsi do |tdsi|
+  end
+
+  # on utilise ansible pour le provisionnement
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+    ansible.inventory_path = "provisioning/inventory"
+    ansible.sudo = true
+  end
+
+end
+
+
+
+////--------------playbook
+
+
+
+# vagrant/provisioning/roles/example/tasks/main.yml
+---
+- name: Installing something
+  apt: pkg={{ item }} state=installed update_cache=true
+  with_items:
+    - htop
+    - git
+    - apache2
+    # - vous pouvez continuer a lister les packets a installer
+--------------------------------------------------------------------------
+
+#vagrant/provisioning/playbook.yml
+---
+- hosts: tdsi # or whatever you called your machine in your Vagrantfile
+  sudo: true
+  gather_facts: true # nous permet juste d'utiliser des variables d’environnement ansible
+
+  roles:
+    - example
+    # - any other roles you want
+
+-----------------------------------------------------------------
+#mettre à jour notre inventaire afin qu'Ansible soit au courant de notre nouveau serveur.
+
+#vagrant/provisioning/inventory
+tdsi ansible_ssh_host=192.168.33.33 ansible_ssh_port=22
+
+
+Les modules sont la base des actions exécutées par Ansible.Chaque  module  est lié à une action  spécifique.Les modules acceptent des arguments.La liste des modules proposé par l’application ansible est accessible grâce à la commande "ansible-doc --list".On peut
+retrouver la liste des modules à cette adresse : 
+http://docs.ansible.com/ansible/modules_by_category.html
+La syntaxe est :ansible (hote/groupe/all) –m  MODULE  [-a "arg1=val1"]
+• Exemple :
+$ ansible all –m  yum –a  "name=httpd state=latest"
+Cette commande permet de vérifier si la dernière version d’apache est installée,si non,alors elle  installe la dernière  
+version.
+Voici une liste de modules couramment utilisés :
+• ping : validation de l’inventaire
+• setup : retourne une liste d’informations matériels de  l’hôte
+• shell et  command : permettent d’exécuter des commandes sur les hôtes
+• user : permet de gérer des utilisateurs sur les hôtes
+• file : permet de gérer des droits sur des fichiers
+• service : permet de gérer les services systèmes tel 
+que : arrêt/démarrage/redémarrage ou activation 
+et désactivation au boot
+• yum/apt/zypper : permet de gérer l’installation,la  
+mise à jour et la suppression de paquets

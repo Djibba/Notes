@@ -1,0 +1,8 @@
+redimensionner la taille de l'ecran sur vmware
+apt-get install open-vm-tools-desktop
+xrandr -s 1024x768
+alias int='nano /etc/network/interfaces'
+
+file nomfichier
+binwalk x.apk
+morse code decoder

@@ -1,0 +1,15 @@
+Ces diagrammes sont tous réalisés à partir du besoin des utilisateurs et peuvent être regroupés selon les deux aspects suivants :
+
+Les aspects fonctionnels : Qui utilisera le logiciel et pour quoi faire ? Comment les actions devront-elles se dérouler ? Quelles informations seront utilisées pour cela ?
+
+Les aspects liés à l’architecture : Quels seront les différents composants logiciels à utiliser (base de données, librairies, interfaces, etc.) ? Sur quel matériel chacun des composants sera installé ?
+
+♀ Le Cycle de vie en cascade
+Exemple d’utilisation :
+
+Le cycle de vie en cascade peut être utilisé lorsqu’un projet est relativement simple, c’est-à-dire pour lequel nous avons la quasi-certitude que les besoins ou exigences n’évolueront pas en cours de projet. En pratique, une étape ne démarre que si la précédente ait été validée par le client et/ou les utilisateurs.
+
+♀ Le cycle de vie en V
+Exemple d’utilisation : 
+Un projet plus important dont les besoins et les exigences risquent d’évoluer pourrait avoir un cycle en V. Comme illustré dans la figure suivante, le système à développer serait décomposé en modules. Chaque module serait conçu, développé et testé séparément. Les différents modules pourraient alors être intégrés dans le système global au fur et à mesure. Des tests d’intégration permettraient alors de garantir que l’ensemble fonctionne de façon à répondre à la conception générale du système. Les tests d’acceptation permettent ensuite de vérifier la cohérence du système avec les besoins.
+

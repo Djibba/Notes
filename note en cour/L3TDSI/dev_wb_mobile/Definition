@@ -1,0 +1,66 @@
+# Def JavaScript
+JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais aussi pour 
+les serveurs2 avec l'utilisation (par exemple) de Node.js3. C'est un langage orienté objet à prototype, c'est-à-dire que les 
+bases du langage et ses principales interfaces sont fournies par des objets qui ne sont pas des instances de classes, mais 
+qui sont chacun équipés de constructeurs permettant de créer leurs propriétés, et notamment une propriété de prototypage qui 
+permet de créer des objets héritiers personnalisés
+
+#Def Node Js
+Node.js est une plateforme logicielle libre en JavaScript orientée vers les applications réseau événementielles hautement 
+concurrentes qui doivent pouvoir monter en charge.Elle utilise la machine virtuelle V8, la librairie libuv pour sa boucle 
+d'évènements, et implémente sous licence MIT les spécifications CommonJS.
+C'est une technologie qui nous permet d'executer du JS coté serveurs
+
+
+****Informatique****
+*L'informatique est un domaine d'activité scientifique, technique, et industriel concernant le traitement automatique de 
+    l'information par l'exécution de programmes informatiques par des machines : des systèmes embarqués, des ordinateurs,
+    des robots, des automates.
+
+
+****langage de programmation***
+*Un langage de programmation est une notation conventionnelle destinée à formuler des algorithmes et produire des programmes
+    informatiques qui les appliquent.
+*Un langage de programmation permet de décrire les structures des données qui seront manipulées par l'appareil informatique 
+    et quelles seront les manipulations.
+
+
+****logiciel || application****
+*En informatique, un logiciel est un ensemble de séquences d’instructions interprétables par une machine et d’un jeu de données
+    nécessaires à ces opérations.
+*Une application, un applicatif ou encore une appli, une app est, dans le domaine informatique, un programme (ou un ensemble 
+    logiciel) directement utilisé pour réaliser une tâche, ou un ensemble de tâches élémentaires d'un même domaine ou formant 
+    un tout.
+
+
+
+****page web statique || page web dynamique****
+*Une page web statique est une page web dont le contenu ne varie pas en fonction des caractéristiques de la demande, c'est-à-dire qu'à un moment donné tous les internautes qui demandent la page reçoivent le même contenu.
+*une page web dynamique est générée à la demande et son contenu varie en fonction des caractéristiques de la demande (heure, adresse IP de l'ordinateur du demandeur, formulaire rempli par le demandeur, etc.) qui ne sont connues qu'au moment de sa consultation.
+
+
+****Interpreteur || Compilateur****
+*Un programme qui exécute les instructions demandées. Il joue le même rôle qu'une machine qui reconnaîtrait ce langage.(interpreteur)
+*Un programme qui traduit le texte dans un langage qui permettra son exécution, tel le langage machine, le bytecode ou le langage assembleur.
+
+
+****Runtime****
+Un runtime (traduction : exécuteur) est un ensemble de bibliothèques logicielles qui mettent en œuvre le langage de programmation, permettant d'effectuer des opérations simples telles que copier des données, voire les opérations beaucoup plus complexes.
+
+
+****HTML Hyper Text Markup Language****
+Le langage de balisage hypertexte ( HTML ) est le langage de balisage standard pour les documents conçus pour être affichés dans un navigateur Web . Il peut être assisté par des technologies telles que les feuilles de style en cascade (CSS) et des langages de script tels que JavaScript .
+
+
+****HTTP****
+Le protocole de transfert hypertexte ( HTTP ) est un protocole d'application pour les systèmes d'information distribués, collaboratifs et hypermédias .
+
+
+****JAVA****
+Java est un usage général langage de programmation qui est basée sur la classe , orientée objet et conçu pour avoir aussi peu de mise en œuvre des dépendances possibles.
+
+****JavaEE****
+Jakarta EE , anciennement Java Enterprise Edition ( Java EE ) et Java 2 Platform, Enterprise Edition ( J2EE ) est un ensemble de spécifications, étendant Java SE 8 [1] avec des spécifications pour des fonctionnalités d'entreprise telles que l' informatique distribuée et les services Web .
+
+****Servlet****
+La technologie de servlet Java offre aux développeurs Web un mécanisme simple et cohérent pour étendre les fonctionnalités d'un serveur Web et accéder aux systèmes d'entreprise existants. Les servlets sont des composants Java EE côté serveur qui génèrent des réponses aux demandes des clients 

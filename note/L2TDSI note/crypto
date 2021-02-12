@@ -1,0 +1,118 @@
+ECOLE CAMBERENE 3 bureau 13 electeur 552 SALLE DE CLASSE
+
+code compression 
+sodes correcteurs d'erreurs
+codes secrets(cryptographie)
+
+les service fondamental de la serité de l'information cryptographie                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         confidentialite            
+authentification     signature numérique
+Integrité    fonctionde hachage
+Non-Repudiation  signature numerique
+disponibilite(conserne le domaine informatique) CE DOMAINE NE CONCERNE PAS LA CRYPTOGRAPHIE 
+
+certificat:permet de lier des informations a son proprietaire 
+
+AES(le plus utilise)
+DLP(discret logarithm problem)
+CDH(comptational diffie hellman)
+DDH(decisional)
+
+exemple de primitive
+	algorithmique
+		cle secrete:DES,AES,RC4,
+		CLE SECRETE:RSA,Mc-Eliece,EL Gamal
+		chiffrement basé sur les réseaux arithmétiques:NTRU-Encrypt
+	Fonction de hachage(pour garantir l'intégrité par la cratio d'emprinte) MD5,SHA-1 SHA-2,SHA-3 etc
+		Shema de signatures numériques: (pour la non répudiation)DSA,EC-DSA,PSS-RSA
+	Signature basee sur les réseaux arithmétiques:NTRU-Sign,ext.
+
+						protocole:
+une serie fini de tache concu pour accomplir une tache
+	-Diffie-Hellman(pour l'échange de cles)
+	-Fiat-Schroder(pour l'authentification mutuelle)
+						Application
+	*internet
+	*Signature electronique:verifiable,auhentique
+	*Vote electronique
+	*paiement par carte bancaire
+	*decodeur
+	*porte monnaie electronique
+	*base de donne securisee
+
+
+						//notion de cryptanalyse
+est ce que un mot de passe composer de lettre et de chiffre de longeur 25 est suffisant pour proteger des donne precieuse
+2^128 :cle
+2^64 :mot de passe simple
+lettre seulement 52
+chiffre 10
+
+
+
+
+la cryptographie symetrique ne garantit que la confidentialite
+3- service confidentialite
+4- Primitive chiffrement
+	-chiffrement par blocs
+		DES-AES-IDEA-3DES
+	-CHIFFREMENT PAR FLUX (flots)
+		RC4 RC5 A5
+5- Avantages
+	►►►Rapidité des operations de chiffrement/dechiffre car la taille des cles est assez petit et calcul elementaire 
+	►►►possibilité de chiffrer des donneés de grande taille
+6- Inconveniant
+	►►►problème de partage et de stockage des clés.
+	►►►probleme de confidentialité de la clé secrete
+	►►►problème de gestion de clé si n personne se partage des clés secretes 2 à 2 alors il y a N·(N − 1)=2 paires de clés. cles a gerer
+
+question sur le mode operatoire au devoir
+
+
+chiffrement asymetrique(il ya uniquement des chiffrement par blocs)
+
+		1-Principe utilisation de deux cles 
+	-1cle publique pour chiffrer ou verifier une signature(authentification non repudiation)
+	-1cle prive pour dechiffrer ou signer
+	on parle de cryptographie a cle publique
+le certificat permet de resoudre le probleme de l'authentification
+il permet de lier une cle publique a un 
+		3-service garantit :
+	►confidentialite
+	►Authentification
+	►Non-repudiation
+		4-Primitive(Algorithme)
+		-chiffrement(RSA,El Gamal,Rabin)
+		-Signature numerique(RSA,El Gamal,DSA)
+		5-Avantages
+		►probleme de partage des cles resolu
+		►plusieurs service garantit car chiffremnt et signature en meme temps
+		►Nombre de clés a gerer moins important que le symetrique
+		6-INconvenient
+		►operation de chiffrement  et dechiffrement tres lentes car la taille des clés est trés grandes et les operation utilisée sont couteuse en memoire CPU
+		►systeme non destiné au chiffrement de texte de taille importante
+
+			TP Cryptosystème RSA sous maple
+			generer 2 entiers premiers p et q
+			calculer n=pq(module RSA) et fi(n)=(p-1)(q-1)le nombre d'euler
+			generer un entier e<fi(n) tq pgcd(e,fi(n))=1
+			calculer d=e(exp(-1))mod fi(n)
+			cle publique=(e,n)
+			cle prive=(d,n)
+			algorithme de chiffrement
+			soit m E Z/nZ le message
+			prendre cle publique(e,n)
+			calculer c=m(expo(e))mod n
+			le chiffre de m est c.
+			Algorithm de dechiffrement
+			soit cE Z/nZ le chiffre recu
+			prendre la cle privee(d,n)
+			calculer m=c(exp(d))modn
+
+			MAC 	garantit l'authenticite(authentification +integrite)
+			les autre l'integrite
+
+
+				Signature numerique
+la signature ne garanti pas  la confidentialite
+
+		le protocol ssl

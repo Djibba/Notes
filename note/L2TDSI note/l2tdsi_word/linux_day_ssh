@@ -1,0 +1,85 @@
+//la connection sécurisé a distance avec ssh
+//Transformer sa machine en serveur
+
+sudo apt-get install openssh-server//installation
+
+Normalement, le serveur SSH sera lancé à chaque démarrage. Si ce n'est pas le cas, vous pouvez 
+le lancer à tout moment avec la commande suivante ://sudo /etc/init.d/ssh start
+Et vous pouvez l'arrêter avec cette commande ://sudo /etc/init.d/ssh stop
+Logiquement, vous ne devriez pas avoir besoin de configurer quoi que ce soit, mais sachez au besoin
+ que le fichier de configuration se trouve dans" /etc/ssh/ssh_config". Il faudra recharger SSH avec
+  la commande "sudo /etc/init.d/ssh reload" pour que les changements soient pris en compte.
+  //Se connecter via SSH à partir d'une machine Linux
+  Ouvrez une console sur le second PC et utilisez la commande ssh comme ceci ://ssh login@ip
+ 
+ 						Se connecter a un serveur en passant par des serveur intermediaires
+  Cette méthode est applicable quel que soit le nombre de serveurs intermédiaires. Néanmoins, plutôt que de répéter une même commande à chaque fois, il est possible de se connecter à SERVEUR_B depuis CLIENT — en passant par SERVEUR_A — en une seule fois :
+1 ssh -J USER_A@IP_SERVEUR_A USER_B@IP_SERVEUR_B
+
+Il faut remplacer login par votre login (mateo21, dans mon cas) et ip par l'adresse IP de votre ordinateur.
+
+//Si le serveur tourne sur un autre port, il faudra préciser le numéro de ce port comme ceci :
+ ssh mateo21@87.112.13.165 -p 12451 (si le serveur fonctionne sur le port 12451 au lieu du port 22).
+ Pour vous déconnecter, tapez logout ou son équivalent : la combinaison de touches Ctrl + D.
+
+ //Se connecter via SSH à partir d'une machine Windows
+
+ //Authentification par clé depuis Linux
+ 		//Opérations sur la machine du client
+Il faut sur la machine du client taper la commande suivante pour générer une paire de clés publique / privée :
+"ssh-keygen -t rsa"//on peut mettre dsa si on veut l'utiliser a la place de rsa
+
+Ensuite, on vous demande une passphrase qui va servir à chiffrer la clé privée pour une meilleure sécurité.
+   - soit vous tapez Entrée directement sans rien écrire, et la clé ne sera pas chiffrée sur votre machine ;
+   - soit vous tapez un mot de passe de votre choix, et la clé sera chiffrée.
+   		//Envoyer la clé publique au serveur
+   -vous pouvez déjà vous rendre dans le dossier .ssh, pour commencer :
+   -Les trois fichiers sont :
+id_rsa ://votre clé privée, qui doit rester secrète. Elle est chiffrée si vous avez rentré une passphrase ;
+id_rsa.pub ://la clé publique que vous pouvez communiquer à qui vous voulez, et que vous devez envoyer au serveur ;
+known_hosts : //c'est la liste des fingerprint que votre PC de client tient à jour. Ça lui permet de se souvenir de
+ //l'identité des serveurs et de vous avertir si, un jour, votre serveur est remplacé par un autre 
+   -L'opération consiste à envoyer la clé publique (id_rsa.pub) au serveur et à l'ajouter à son 
+fichier authorized_keys (clés autorisées). Le serveur y garde une liste des clés qu'il autorise à se connecter.
+   -Le plus simple est d'utiliser la commande spéciale ssh-copy-id.//ssh-copy-id -i id_rsa.pub login@ip
+   -Maintenant, connectez-vous au serveur comme vous le faisiez auparavant ://ssh login@ip
+//L'agent SSH
+L''agent SSH est un programme qui tourne en arrière-plan en mémoire. 
+Il retient les clés privées pendant toute la durée de votre session.
+Tout ce que vous avez à faire est de lancer le programme ssh-add sur le PC du client :
+Il va automatiquement chercher votre clé privée. Pour la déchiffrer, il vous demande la passphrase. Entrez-la.
+
+pour lancer l'agent ssh
+ssh-agent /bin/bash
+Prérequis : Le paquet openssh-askpass doit être installé. Cela peut être vérifié en tapant rpm -q openssh-askpass.
+
+
+ssl  secure sockets layer
+tls transport layer security
+ssl/tls:ce sont des protocole de securisation  des echanges sur internet
+pour eviter le probleme du man in the middle il faudra certifier l'identite du porteur de cle et c le role du certificat
+
+un certificat est un document contenant au moins une cle publique information pouvant identifier la personne comme son nom adress son email 
+information lier au certificat notament sa date de validité
+une signature electronique d'une autorité de certification celle ci montre que le certificat a bien ete verifier par l'autorite de certification puis qu'il y a sa signture elle donc garant de son integrite cad la preuve que le document n'a pas subi d'alteration entre l'instant ou il a ete signer par son auteur  et celui il a ete consulté par son auteur
+l'autorite de certification est l'institution responsable d'emettre les certificat son role est de garatir que les information continu dans le certificat sont correct 
+
+
+L''agent SSH est un programme qui tourne en arrière-plan en mémoire. 
+Il retient les clés privées pendant toute la durée de votre session.
+Tout ce que vous avez à faire est de lancer le programme ssh-add sur le PC du client :
+Il va automatiquement chercher votre clé privée. Pour la déchiffrer, il vous demande la passphrase. Entrez-la.
+
+pour lancer l'agent ssh
+ssh-agent /bin/bash
+Prérequis : Le paquet openssh-askpass doit être installé. Cela peut être vérifié en tapant rpm -q openssh-askpass.
+pour lister les clé enregistrer on utilise ssh-add -l 
+seahorse //installer par defaut sur ubuntu il retient en memoire la passphrase
+la demande de saisi de la passphrase est declanché par l'agent ssh il garde en memoire vive les clé 
+
+creer ~/.ssh/config
+Host webserver
+	Hostname seck
+	User seck
+	IdentityFile ~/.ssh/
+pour se connecter maintenant ssh hostname

@@ -1,0 +1,100 @@
+La surface d'attaque est l'ensemble des points qui sont succeptibles d'etre attaquer par des pirates (logiciel,reseau humaine et physique)
+
+La veille de sécurité est l'ensemble des techniques et outils qui permettent d'identifier des menaces potentiels qui
+pourraient porter atteinte à la pérennité d'un organisme
+
+securityfocus,exploitdb
+
+Processus de veille en cybersécurité : 
+    organisation -> Recensement (topologie) -> Désignation d'un responsable de veille -> sources d'infos variées
+
+Quelques sources d'infos : 
+    - ExploitDatabase
+    - vFeed
+    - securityfocus
+    - ANSSI
+    - The Hacker news
+    - Sploitus
+    - CVE details
+
+Shodan est un moteur de recherche qui va repertorier tous les objets connectés incluant tout type de periqherie
+Il nous offre aussi une interface de programmation
+
+Une politique de sécurité est un ensemble de plans, processus, procédures, standards et meilleurs pratiques qui permettent de mettre en place les exigences
+de sécurité de l'organisme Elle doit etre claire et concise , elle doit aussi traiter tous les volets de pyramide (intégrité,disponibilité,tracabilité)
+    - Désignation de responsable de sécurité
+    - Développer des procédures adaptés
+    - Determiner les moyens necessaires
+    - Définir un périmetre et les objectifs
+    - Préparer la politique en amont
+On a Entreprise Information Security Policy qui définit une portée de politique et qui dirige et visionne la politique de sécurité
+     Issue Specific Security Policy qui permet de mettre en place de meilleures pratiques
+     System Specific Security Policy qui concerne la configuration et la supervision de la politique de sécurité
+ 
+Difference entre ISL et 802.1Q : 
+    ISL encapsule toutes les trames quelque soit le vlan
+    dot1Q insere un tag(un marqueur) dans l'entete de la trame et uniquement sur les vlans autres que le vlan natif  
+
+La commande qui permet de sécuriser les port du switch aux violations de sécurité est :
+    switchport port-security violation
+        shutdown: desactiver le port
+        protect: bloquer les add mac inconnu
+        restrict: alert SNMP
+Commande qui permet d'augmenter le nombre d'add mac :
+    switchprot port-security maximun 'nombre'
+
+ACL = access-list permet de filtrer des adresse,des port et protocoles
+    ACL standard(nommée ou numérotée) permet de faire un filtrage via add ip sources
+    ACL Extended(etendue :(nommée ou numérotée)) permet de filtrer via ip ,port,protocoles
+    ACL match filtrage via une régle
+    ACL wildcard filtrage via masque de réseau inversé
+
+La redondance physique des elements actifs du reseau permet de mettre en place des principes de haute disponibilité
+au sein d'un systéme d'information
+L'utilisation de protocole de redondance permettant de gerer automatiquement les transitions,les répartitions de la charge
+ainsi que tolérence de panne est fortement conseillée
+Les protocoles de redondance : 
+    HSRP (Hot Standby Routing Protocol) est un protocole CISCO qui a pour fonction d'accroitre la haute disponibilité dans un reseau par une tolérence aux pannes
+    VRRP
+    GLBP
+-----------------HSRP---------------------(valable pour les autres routeurs concernant)
+R1#conf t
+R1(config)#no ip domain-lookup
+R1(config)#int f0/0
+R1(config-if)#ip add 30.0.0.251 255.0.0.0
+R1(config-if)#no sh                                                                                                         
+R1(config-if)#exit
+R1(config)#int f0/1
+R1(config-if)#ip add 60.0.0.251 255.0.0.0
+R1(config-if)#no shu                                                                                                         
+R1(config-if)#exit
+R1(config)#int f0/0
+R1(config-if)#standby 1 ip 30.0.0.254
+R1(config-if)#standby 1 priority 130
+R1(config-if)#standby 1 preempt
+R1(config-if)#standby 1 track fastEthernet 0/1 30
+R1(config-if)#exit
+R1(config)#int f0/1
+R1(config-if)#standby 2 ip 60.0.0.254
+R1(config-if)#standby 2 priority 130
+R1(config-if)#standby 2 preempt
+R1(config-if)#standby 2 track fastEthernet 0/0 30
+R1(config-if)#exit
+R1(config)#exit                                                                                                         by console
+R1#
+Ensuite on essaie de couper le cable relier au router R1(le patron) au reseau 30.0.0.0
+
+--------------------SSH-------------------
+R1#conf t
+R1(config)#ip domain name djibba.com
+R1(config)#crypto key generate rsa modulus 2048
+R1(config)#ip ssh version 2
+R1(config)#line vty 0 4
+R1(config-line)#transport input ssh
+R1(config-line)#login local
+R1(config-line)#exec-timeout 0 30
+R1(config-line)#exit
+R1(config)#username djibba
+R1(config)#username djibba secret djibba
+R1(config)#service pass
+R1(config)#service password-encryption

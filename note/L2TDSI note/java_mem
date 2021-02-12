@@ -1,0 +1,9 @@
+Encapsulation et Interface
+Il y a donc deux facettes à l’encapsulation :
+1. regroupement de tout ce qui caractérise l’objet : données (attributs) et traitements (méthodes)
+2. isolement et dissimulation des détails d’implémentation
+Interface = ce que le programmeur-utilisateur (hors de l’objet) peut utiliser
+☞ Concentration sur les attributs et les méthodes
+concernant l’objet (abstraction)
+
+this: est une reference à l'instance couranter

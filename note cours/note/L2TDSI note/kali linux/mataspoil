@@ -1,0 +1,39 @@
+// -----------afficher tous les exploits-------
+"show exploits"
+"show auxiliary"
+
+// -----------outils collecte d'information passif
+netcraft - whois 
+nslookup set type=mx site.com
+// -----------outils collecte d'information actif
+nmap
+db_nmap -v -sS -A 192.168.*.* //pour enregistrer directement sur nmap 
+db_hosts - db_services
+
+//creer un fichier et y mettre le resultat de le scan
+"nmap -v -sS -A -oX resultscanNMAP ip"
+
+//importer un fichier xml sur metasploit
+"db_import nomfichier"
+
+//effectuer un scan en utilisant l'ip d'une autre machine dans le reseau 
+	//recherche ip d'une machine hors tension sur notre reseau
+>search ipidseq
+>use "nom module"
+>show option
+>set RHOST 192.168.1.0/24 //definir un ip ip pour le remote host
+>exploit //pour lancer le scan 
+
+nmap -PN sI "ip power of" "ip cible" // PN:without ping 
+
+///-----------PORT SCAN
+>search portscan
+>use "chemin syn"
+>show option
+//--------------------------recherche cibler
+//-------------------ssh scan
+search ssh_version
+//-------------------ftp scan
+search ftp_version
+>ftp_version>search anonymous
+

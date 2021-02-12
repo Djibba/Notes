@@ -1,0 +1,41 @@
+ PLAN
+Introduction
+GENERALITES SUR LES PORTAILS CAPTIFS 
+ Définition 
+ Fonctionnement général des portails captifs 
+ Aperçu des principaux portails captifs 
+PFsense 
+ALCASAR 
+ ZeroShell 
+ChilliSpot
+Comparaison des portails captifs 
+Choix d'une solution de portail captif 
+2. Pfsense
+
+Qu'est-ce PFsense ? 30
+IV.2. Aperçu des fonctionnalités et services de PFsense 30
+IV.3. Les versions du logiciel 31
+IV.4. Installation de PFsense 31
+
+
+      Configuration de PFsense 40
+IV.5.1 Configuration générale 40
+IV.5.2 Configuration des interfaces 43
+IV.5.2.l. Interface WAN 43
+IV.5.2.2. L'interface LAN 44
+IV.5.2.3. Configuration du serveur DHCP 44
+IV.5.2.4. Définition des règles du firewall 46
+
+ Implémentation du portail captif de PFsense 47
+
+V.2. Authentification et gestion des utilisateurs 52
+V.2.1 L'authentification par RADIUS 53
+V.2.2 Gestion de comptes utilisateurs 54
+V.3. Sécurité du portail captif 55
+V.4. Contrôle de la bande passante 59
+
+
+
+
+
+Conclusions

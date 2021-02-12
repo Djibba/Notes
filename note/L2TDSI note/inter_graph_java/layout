@@ -1,0 +1,236 @@
+FlowLayout
+Ce gestionnaire dispose les composants les uns à la suite des autres, sur une même ligne. Lorsqu'une ligne ne possède plus suffisamment de place, l'affichage se poursuit sur la ligne suivante. Chaque composant conserve sa taille préférée. Par exemple, le gestionnaire de placement par défaut d'un JPanel est un FlowLayout ; il essaie de placer les objets sous leur taille préférée de gauche à droite et de haut en bas :
+//----------------------------------------------------------------------
+package gestionnaire;
+
+import javax.swing.*;
+
+public class Fenêtre extends JFrame {
+   private JButton nord = new JButton("Nord");
+   private JButton ouest = new JButton("Ouest");
+   private JButton sud = new JButton("Sud");
+   private JButton centre = new JButton("Centre");
+   private JButton est = new JButton("Est");
+   private JPanel panneau = new JPanel();
+    
+   public Fenêtre() {
+      setTitle("Une fenêtre");
+      setSize(300, 250);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      panneau.add(nord);
+      panneau.add(ouest);
+      panneau.add(sud);
+      panneau.add(centre);
+      panneau.add(est);
+      add(panneau);
+      setVisible(true);
+   }
+   public static void main(String[] args) {
+      new Fenêtre();  
+   }
+}
+//-------------------------------------------------------------------------------------
+
+BorderLayout
+Ce gestionnaire dispose les composants suivant les quatre bords du conteneur ou au centre. BorderLayout dispose donc cinq composants maximum dans un conteneur, deux au bords supérieur et inférieur à leur hauteur préférée, deux aux bords gauche et droit à leur largeur préféré, et un au centre qui occupe le reste de l'espace. Par exemple, le gestionnaire de placement par défaut de JFrame est un BorderLayout, qui place des objets à des emplacements particuliers désignés de la fenêtre, comme NORTH, SOUTH et CENTER :
+//--------------------------------------------------------------------------------
+package gestionnaire;
+import java.awt.BorderLayout;
+import javax.swing.*;
+
+public class Fenêtre extends JFrame {
+   private JButton nord = new JButton("Nord");
+   private JButton ouest = new JButton("Ouest");
+   private JButton sud = new JButton("Sud");
+   private JButton centre = new JButton("Centre");
+   private JButton est = new JButton("Est");
+    
+   public Fenêtre() {
+      setTitle("Une fenêtre");
+      setSize(300, 250);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      add(nord, BorderLayout.NORTH);
+      add(ouest, BorderLayout.WEST);
+      add(sud, BorderLayout.SOUTH);
+      add(centre, BorderLayout.CENTER);
+      add(est, BorderLayout.EAST);
+      setVisible(true);
+   }
+   public static void main(String[] args) {
+      new Fenêtre();  
+   }
+}  
+//------------------------------------------------------------------------------------
+
+GridLayout
+Ce gestionnaire permet de disposer les composants suivant une grille régulière, chaque composant
+ ayant alors la même taille. Il est tout à fait possible de changer de gestionnaire de placement 
+ par défaut et d'imposer celui qui vous convient. Par exemple, nous pouvons choisir le gestionnaire
+  GridLayout en lieu et place du gestionnaire BorderLayout prévu par défaut pour un cadre de fenêtre :
+//----------------------------------------------------------------------------------------
+package gestionnaire;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Fenêtre extends JFrame {
+   private JButton nord = new JButton("Nord");
+   private JButton ouest = new JButton("Ouest");
+   private JButton sud = new JButton("Sud");
+   private JButton centre = new JButton("Centre");
+   private JButton est = new JButton("Est");
+   
+   public Fenêtre() {
+      setTitle("Une fenêtre");
+      setSize(300, 250);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      setLayout(new GridLayout(3, 2));
+      add(nord);
+      add(ouest);
+      add(sud);
+      add(centre);
+      add(est);
+      setVisible(true);
+   }
+   public static void main(String[] args) {
+      new Fenêtre();  
+   }
+}
+//----------------------------------------------------------------------------------------
+
+CardLayout
+Ce gestionnaire permet de disposer des composants suivant une pile, à la manière d'un paquet 
+de cartes, un seul composant étant visible à la fois. Ce gestionnaire est pratique pour créer
+ des panneaux contextuels qui apparaissent suivant l'évolution du programme ou suivant les choix 
+ de l'utilisateur. Avec ce gestionnaire, lorsque vous placez votre composant dans le conteneur,
+  vous devez identifiez la carte à l'aide d'une chaîne de caractère.
+//--------------------------------------------------------------------------------------
+package gestionnaire;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Fenêtre extends JFrame {
+   private JButton nord = new JButton("Nord");
+   private JButton ouest = new JButton("Ouest");
+   private JButton sud = new JButton("Sud");
+   private JButton centre = new JButton("Centre");
+   private JButton est = new JButton("Est");
+   
+   public Fenêtre() {
+      setTitle("Une fenêtre");
+      setSize(300, 250);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      setLayout(new CardLayout());
+      add(nord, "Nord");
+      add(ouest, "Ouest");
+      add(sud, "Sud");
+      add(centre, "Centre");
+      add(est, "Est");
+      setVisible(true);
+   }
+   public static void main(String[] args) {
+      new Fenêtre();  
+   }
+}
+//------------------------------------------------------------------------------------
+BoxLayout
+Ce gestionnaire permet de disposer des composants suivant une même ligne, avec leur hauteur préférée, 
+ou une même colonne, avec leur hauteur préférée, mais avec plus de souplesse (moins de contrainte) que
+le gestionnaire GridLayout. 
+//--------------------------------------------------------------------------------------
+package gestionnaire;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Fenêtre extends JFrame {
+   private JButton nord = new JButton("Nord");
+   private JButton ouest = new JButton("Ouest");
+   private JButton sud = new JButton("Sud");
+   private JButton centre = new JButton("Centre");
+   private JButton est = new JButton("Est");
+   
+   public Fenêtre() {
+      setTitle("Une fenêtre");
+      setSize(300, 250);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+      add(nord);
+      add(ouest);
+      add(sud);
+      add(centre);
+      add(est);
+      setVisible(true);
+   }
+   public static void main(String[] args) {
+      new Fenêtre();  
+   }
+}
+//------------------------------------------------------------------------------------
+GridBagLayout
+Comme GridLayout, ce gestionnaire permet de disposer les composants suivant une grille, mais ceux-ci
+ peuvent éventuellement occuper plusieurs cellules ; en outre, nous pouvons disposer diverses contraintes
+  indiquant comment la taille des cellules peut être modifié au fil de l'exécution. Avec ce gestionnaire,
+   vous pouvez réellement disposer vos composants comme vous l'entendez, mais c'est aussi le plus délicat
+à mettre en oeuvre. (ce gestionnaire ne sera pas étudié, parce que trop complexe et trop long à mettre en oeuvre).
+SpringLayout
+Ce gestionnaire dispose les composants en fonction de leur taille préférée et de contraintes qui spécifient 
+comment ces composants sont rattachés les uns par rapport aux autres.
+GroupLayout
+Ce gestionnaire permet de définir plusieurs groupes de composants à l'intérieur d'un même conteneur, 
+ce qui évite de placer des panneaux intermédiaires.
+//--------------------------------------------------------------------------------------
+
+Dimensionnement automatique de la fenêtre en correspondance avec ses composants internes
+Nous pouvons appeler explicitement le méthode pack() de Window (donc JFrame, JDialog et JWindow)
+ pour démarrer la gestion de disposition de la fenêtre et de régler ainsi sa taille initiale. 
+ Cette méthode pack() est importante. Elle permet, en effet, de se passer de la méthode setSize(), 
+ où il est toujours difficile de spécifier la bonne dimension de la fenêtre, compte tenu de l'ensemble
+  des composants dont elle dispose. Le fait d'appeler la méthode pack() fixe automatiquement la taille 
+  de la fenêtre, en aménageant ses dimensions pour qu'elles correspondent à la taille préférée des
+   composants contenues par la fenêtre.
+
+package conversion;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Conversion extends JFrame implements ActionListener {
+   private JTextField saisie = new JTextField("0");
+   private JButton conversion = new JButton("Conversion");
+   private JLabel résultat = new JLabel("0 Franc");
+   private JPanel panneau = new JPanel();
+   
+   public Conversion() {
+      super("€uros -> Francs");
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      saisie.setHorizontalAlignment(JTextField.RIGHT);
+      saisie.addActionListener(this);
+      saisie.setPreferredSize(new Dimension(125, 25));
+      conversion.addActionListener(this);
+      panneau.setLayout(new BorderLayout());
+      panneau.add(saisie);
+      panneau.add(conversion, BorderLayout.EAST);
+      add(panneau, BorderLayout.NORTH);
+      résultat.setHorizontalAlignment(JLabel.RIGHT);  
+      résultat.setBorder(BorderFactory.createEtchedBorder());
+      add(résultat, BorderLayout.SOUTH);
+      getContentPane().setBackground(Color.GREEN);
+      pack();
+      setVisible(true);
+   }
+   
+   public static void main(String[] args) {
+      new Conversion();  
+   }
+
+   public void actionPerformed(ActionEvent e) {
+       final double TAUX = 6.55957;
+       double €uro = Double.parseDouble(saisie.getText());
+       double franc = €uro * TAUX;
+       résultat.setText(franc+" Francs");
+   }
+}
+  //------------------------------------------------------------------------------------

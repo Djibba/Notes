@@ -1,0 +1,31 @@
+L'isolation avec le système hôte est donc totale ; cependant, cela apporte plusieurs contraintes :
+
+❌une machine virtuelle prend du temps à démarrer ;
+
+❌une machine virtuelle réserve les ressources (CPU/RAM) sur le système hôte.
+
+Mais cette solution présente aussi de nombreux avantages :
+
+✅une machine virtuelle est totalement isolée du système hôte ;
+
+✅les ressources attribuées à une machine virtuelle lui sont totalement réservées ;
+
+✅vous pouvez installer différents OS (Linux, Windows, BSD, etc.).
+
+Un conteneur Linux est un processus ou un ensemble de processus isolés du reste du système, tout en étant légers.
+Le conteneur permet de faire de la virtualisation légère, c'est-à-dire qu'il ne virtualise pas les ressources, il 
+ne crée qu'une isolation des processus. Le conteneur partage donc les ressources avec le système hôte.
+
+un des premiers usages de Docker se trouve dans la création d'environnements locaux. Il est plus simple d'utiliser 
+Docker en local quand on travaille avec de nombreuses versions différentes des logiciels, et ainsi ne pas avoir des
+problèmes de compatibilité entre elles.
+
+Si nous prenons le cas d'une base de donnée MySQL, celle-ci est stateful car elle stocke un état. Ainsi, si vous 
+éteignez et rallumez votre base de données, vous la retrouverez dans le même état de fonctionnement.
+Stateless est donc l'inverse : l'application ne stocke pas d'état. Vous pouvez prendre le cas du protocole HTTP, 
+celui-ci est stateless. À chaque nouvelle requête HTTP, les mêmes séries d'actions seront réalisées.
+
+Docker Inc distribue 3 versions de Docker différentes :
+    Docker Community Edition (Linux seulement) ;
+    Docker Desktop (Mac ou Windows) ;
+    Docker Enterprise (Linux seulement).

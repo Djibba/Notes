@@ -1,0 +1,13 @@
+Qu’est ce qu’un pare feu ?
+Un pare-feu (en anglais, "firewall") est une sorte de garde-barrière, qui
+contrôle le trafic des données entre un réseau local et un réseau externe
+
+INTRODUCTION :
+La problématique rencontrée dans certains structure qu'il soit publique ou privéé (les ecole universite entreprise etc)est la sécurisation du point d’accès sans fils ainsi que la difficulté pour
+l’administrateur à gérer tous les utilisateurs qui souhaite s’y connecter.
+La mise en place d’un portail captif permet à l’administrateur de gérer l’authentification et le temps de chaque utilisateur,
+De plus, grâce au portail captif, le wifi n’aura plus besoin de clefs de protection, mais les utilisateurs seront redirigés vers une page webd’authentification
+
+Ce système offre donc une sécurité du réseau mis à disposition, il permet de respecter la
+politique de filtrage web de l'entreprise grâce à un module proxy et permet aussi grâce à un
+firewall intégré d'interdire l'accès aux protocoles souhaités

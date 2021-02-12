@@ -1,0 +1,128 @@
+Mme Ba :Aminata Ngom
+NB PRENDRE NOTE 
+bdd: ensemble structuré de donnees stocké dans un dispositifs informatique 
+   SGBD: c'est un logiciel système qui permet de stocker d'interroger de modieliser et de gerer les donnes
+SGBD : 3 NIVEAU 
+  -PHYSIQUE (materiel)
+  -conceptuel(interne)
+  -VUE(interface)
+PROPRIETE SGBD
+  -disponibilité
+  -independance des donnees
+  -organisée
+  -maniable(accessibilité insertion modification )
+  -limiter la redondance des donnees
+  -securité
+
+ schema : representation visuelle de la bdd(regroupe des objet(table,vue) )
+ user: se connecte avec son compte user
+ bdd: regroupe l'ensemble des schema
+ une vue c'est une table virtuelle 
+
+
+ TP
+ Quelles sont les différences majeures entre un fichier informatique et une
+base de données gérée par un SGBD ?
+-les fichier informatique ne sont pas concu pour etre manipuler facile 
+-les fichier sont reliés dans une base de donnee
+-on a pas besoin de savoir comment sont stocker les donne pour le manipuler
+
+ 
+
+ --------Introduction aux bases de données---------
+definition : SGBD
+  Un système de gestion de base de données (SGBD) est un ensemble
+  de programmes permettant à plusieurs utilisateurs d’accéder à un
+  ensemble de données volumineux.
+
+Motivation d'utiliser un SGBD:
+  Le développement d’une application sans SGBD pose de nombreux problèmes car les programmes d’application sont  
+  directement  écrits au dessus du système de gestion de fichiers ce qui entrainerai:
+      1 Redondance: même données stockées sur plusieurs fichiers
+      2 Difficulté d’accés aux données
+      3 Manque de sécurité: données publique
+      4 Gestion de l’intégrité: absence de contrôle des données
+
+Fichier: Une collection, un ensemble de données numériques réunies sous un même nom, enregistrées sur un support de
+stockage permanent, appelé mémoire de masse ( disque dur,cédérom etc) et manipulées comme une unité.
+Un fichier correspond à un enregistrement de données informatiques stockées dans votre ordinateur.
+
+---DEFINITION DE BASE DE DONNEE-----
+-une base de donnee: est un ensemble d infomation bien structuré dont le but est de stocker et d'extraire des informations 
+-Base de données: Une base de données est un conteneur stockant des données telles que des chiffres, des dates ou des mots, pouvant être 
+retraités par des moyens informatiques pour produire une information.
+-Une base de données informatisée est un ensemble structuré de données enregistrées sur des supports accessibles par l'ordinateur, représentant
+ des informations du monde réel et pouvant être interrogées et mises à jour par une communauté d'utilisateurs.
+-Une base de données (que nous nommerons BDD par commodité) est une collection d’informations organisées afin d’être facilement consultables,
+ gérables et mises à jour
+
+On distingue trois niveaux à un SGBD:
+  1 Le niveau physique (le système de gestion de fichier) qui correspond à l’organisation et le stockage physique des données,
+  2 Le niveau conceptuel (SGBD interne) qui gère les données stockées dans les fichiers, les liens existants entre ces données.C’est un niveau 
+    conceptuel qui permet de décrire les données, leurs propriétés et comment y accéder.
+  3 Le niveau vue (SGBD externe) qui définit la mise en forme et la présentation des données aux programmes et aux utilisateurs ayant accès à la 
+    base de données.
+Cette décomposition en couche permet d’avoir une indépendance entre les données et les traitements.
+
+-------PROPRIÉTES-------
+De manière générale, un SGBD doit avoir les caractéristiques suivantes :
+    1 Indépendance physique
+    2 Indépendance logique
+    3 Maniabilité
+    4 Rapidité des accès
+    5 Limiter les redondances
+    6 Vérification de l’intégrité
+    7 partageabilité des données
+    8 Sécurité des données
+
+----ARCHITECTURE D'UN SYSTEME DE GESTION DE BASE DE DONNE----
+niveau physique admin
+niveau conceptuel programmeur d'appli
+niveau externe utilisateur
+
+------ LES MODELES DE DONNEES------------
+  C’est un concept qui permet de décrire les données, les liens entre les
+  données, la sémantique et les contrainte d’intégrité sur ces dernières.
+  On distingue :
+      1 Le modèle conceptuel: qui permet de décrire de façon formelle
+      les données qui seront utilisées par le système d’information
+      (Conception).
+      2 Le Modèle logique: qui permet de décrire la structure de
+      données utilisée sans faire référence à un langage de programmation (conception et du développement).
+      3 Modèle physique: qui consiste à implanter une base de données dans un SGBDR.
+
+------modele entite association------
+-Une entité : est un objet, un événement, un lieu, une personne, une chose, identifiable sans ambiguïté.
+-Classe d’entités : c’est un regroupement d’entités de même nature. Elle est identifiée par un nom et par une liste de propriétés.
+-Une association: C’est un lien entre 2 ou plusieurs entités
+Classe d’association: C’est un lien entre 2 ou plusieurs classes
+d’entités. Elle est identifiée par nom (qui correspond souvent à un verbe) et possède une liste de propriétés.
+-Attributs = Propriétés
+Propriété: C’est une donnée élémentaire que l’on perçoit sur une entité ou une association.
+-Une classe d’entités est représentée par un rectangle avec son nom
+à l’intérieur.
+-Une classe d’associations est représentée par un losange avec son
+nom à l’intérieur et est relié à chaque classe d’entités qu’elle relie.
+-Les attributs sont eux représentés par des cercles contenant leurs
+noms et sont reliés à la classe d’entité ou la classe d’association qu’ils
+décrivent. Le ou les attributs identificateurs sont soulignés.
+-Une association réflexive (ou unaire) est une association qui relie une
+entité à elle même
+-Une entité faible est une entité dont les occurrences ne peuvent exister
+que si les occurrences d’une autre entité existent (contrainte
+d’identification).
+-La généralisation est le procédé par lequel on factorise les attributs
+communs d’entités de même nature.
+-Dans le même ordre d’idée, la spécialisation est le procédé inverse
+permettant de préciser des caractéristiques particulières à des entités
+similaires mais différentes.
+---Differences entre la généralisation et la spécialisation en SGBD
+-La généralisation est le processus de combinaison d’entité de niveau
+inférieur pour produire l’entité de niveau supérieur: c’est une approche
+ascendante.
+-La Spécialisation est le processus consistant à diviser l’entité de
+niveau supérieur en entité de niveau inférieur: c’est une approche
+descendante
+
+
+--------------------------FIN DE LA LECÇON------------------------------

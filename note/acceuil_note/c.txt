@@ -1,0 +1,13 @@
+//***************LISTE CHAINE
+typedef struct Element
+{
+	int nombre;
+	struct Element *suivant;
+}Element;
+//structure de controle
+typedef struct Liste
+{
+	Element *premier;
+}Liste;
+// Element, qui correspond à un élément de la liste et que l'on peut dupliquer autant de fois que nécessaire ;
+// Liste, qui contrôle l'ensemble de la liste. Nous n'en aurons besoin qu'en un seul exemplaire.

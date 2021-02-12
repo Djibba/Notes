@@ -1,0 +1,89 @@
+//probleme de update 
+ printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+
+Tout d’abord, la commande suivante permet de vérifier la liste de tous les composants qui seront mis à jour.
+yum list updates
+La commande suivante permet de lancer la mise à jour du système.
+yum update
+Une fois le processus de mise à jour terminé, redémarrez avec la commande:
+reboot
+
+vmnet11 ens37
+apres installation
+nmcli d
+nmtui
+yum update -y
+yum install 
+
+//installer un serveur dns
+Qu'est-ce qu'un serveur DNS ? 
+Le serveur DNS (Domain Name System, ou Système de noms de domaine en français) est un service dont la principale fonction est de traduire un nom de domaine en adresse IP. Pour simplifier, le serveur DNS agit comme un annuaire que consulte un ordinateur au moment d'accéder à un autre ordinateur via un réseau. Autrement dit, le serveur DNS est ce service qui permet d'associer à site web (ou un ordinateur connecté ou un serveur) une adresse IP, comme un annuaire téléphonique permet d'associer un numéro de téléphone à un nom d'abonné.
+
+Un serveur DHCP (ou service DHCP) est un serveur (ou service) qui délivre des adresses IP aux ordinateurs qui se connectent sur le réseau.
+
+NFS
+Le Network File System est un protocole permettant de partager facilement des fichiers
+sur des machines distantes exactement comme s’ils sont locaux .Ll met à disposition des
+répertoires de son système de fichier local sur le réseau. Suivant les droits d’accès, les autres
+stations du réseau peuvent monter ces répertoires, qui seront alors vus comme des répertoires
+locaux. Sous les systèmes UNIX (y compris Linux), il est considéré comme un système de
+fichiers à part entière.Il est basé sur le protocole RPC (Remote Procedure Call).
+
+SMB
+Le protocole SMB (Server Message Block) est un protocole permettant le partage de
+ressources (Répertoires, fichiers et imprimantes) sur des réseaux locaux avec des PC sous
+Windows
+
+SAMBA
+Samba est une implémentation sous Linux du protocole SMB/CIFS de Microsoft Windows de manière à pouvoir partager des fichiers et des imprimantes avec des stations Windows dans un réseau informatique
+
+POTFIX
+Postfix est un serveur de messagerie électronique et un logiciel libre développé par Wietse Venema et plusieurs contributeurs. Il se charge de la livraison de courriers électroniques (courriels) et a été conçu comme une alternative plus rapide, plus facile à administrer et plus sécurisée que l'historique Sendmail.
+
+Dovecot est un agent de distribution de courrier conçu pour la sécurité. Il supporte les principaux formats de boîte aux lettres: mbox ou Maildir. 
+
+Dans le couple, Postfix est le MTA (pour Mail Transfert Agent). C'est lui qui envoie et reçoit les courier via le protocole SMTP. Dovecot, qui, outre son rôle de serveur POP3 et IMAP sert également de MDA (pour mail delivery agent). Il va donc délivrer les mail dans la bonne boite au lettre. En tant que serveur POP3 et IMAP, il va permettre au logiciel de messagerie de récupérer et gérer les mails.
+
+Serveur FTP
+Sauter à la navigationSauter à la recherche
+Le serveur FTP (File Transfer Protocol) permet, comme son nom l'indique, de transférer des fichiers par Internet ou par le biais d'un réseau informatique local
+
+SFTP
+SFTP est le composant de ce protocole SSH qui
+assure le transfert de fichiers. Un client SFTP se comporte comme un
+client FTP classique.
+SFTP est toutefois un tout autre protocole que FTP. Il est en effet
+protégé à l’aide de techniques cryptographiques, ce qui signifie que
+tout le trafic entre un client et un serveur est entièrement chiffré,
+depuis le processus d’identification jusqu’à l’envoi de fichiers.
+
+PAM
+PAM utilise une architecture modulaire enfichable, offrant à l'administrateur système une grande flexibilité quant à l'établissement d'une politique d'authentification pour le système.
+PAM : Pluggable Authentication Modules (modules d'authentification enfichables, en abrégé PAM) est un mécanisme
+permettant d'intégrer différents schémas d'authentification de bas niveau dans une API de haut niveau, permettant de ce fait de
+rendre indépendants du schéma les logiciels réclamant une authentification.
+cracklib
+Le paquet CrackLib contient une bibliothèque utilisée pour imposer des mots de passe forts en comparant les mots de passe sélectionnés par l'utilisateur avec des mots dans des listes choisies.
+
+serveur web
+Un serveur web est un logiciel permettant à des clients d'accéder des pages web à partir d'un
+navigateur installé sur leur ordinateur distant
+APACHE
+Apache2 est un logiciel qui permet de mettre à disposition sur le réseau un site web (pages
+html, PHP). Plus précisément apache2 est un serveur http
+Gitlab
+Gitlab est une application web libre qui permet de gérer en ligne ses dépôts git, avec de la
+gestion de droits d’accès, les projets et les groupes.
+
+Un client de messagerie est un logiciel qui sert à lire et envoyer des courriers électroniques
+
+SMTP et POP sont les protocoles sur lesquels est fondé le processus de livraison et de pick-up du courrier électronique. Ils interagissent au début et à la fin du «voyage» d’un mail, en definent comment le transférer (à partir de votre serveur de courrier sortant vers à un destinataire) et comment le récupérer (à partir du serveur entrant à la boîte de réception du réel destinataire).
+
+En un mot, vous pouvez envoyer un email grâce au protocole SMTP et vous pouvez le télécharger sur votre ordinateur grâce au protocole POP.
+
+Le routage est le processus de détermination du meilleur chemin vers une destination.
+
+LDAP 
+Lightweight Directory Access Protocol est à l'origine un protocole permettant l'interrogation et la modification des services d'annuaire.
+sudo apt install libatlas3-base libsz2 libharfbuzz0b libtiff5 libjasper1 libilmbase12 libopenexr22 libilmbase12 libgstreamer1.0-0 libavcodec57 libavformat57 libavutil55 libswscale4 libqtgui4 libqt4-test libqtcore4
+

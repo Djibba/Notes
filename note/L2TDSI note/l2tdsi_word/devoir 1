@@ -1,0 +1,241 @@
+exercice 2
+root@Debian02:/home/seck2# mkdir dossier1 dossier2 rep3
+root@Debian02:/home/seck2# ls
+doc2  dossier1  dossier2  rep3
+root@Debian02:/home/seck2# touch dossier1/fich11
+root@Debian02:/home/seck2# mkdir  dossier2/rep21
+root@Debian02:/home/seck2# ls *doss
+ls: cannot access *doss: No such file or directory
+root@Debian02:/home/seck2# ls doss*
+dossier1:
+fich11
+
+dossier2:
+rep21
+root@Debian02:/home/seck2# cd dossier2/rep21
+root@Debian02:/home/seck2/dossier2/rep21# cp -r ../../dossier1 .
+root@Debian02:/home/seck2/dossier2/rep21# ls
+dossier1
+root@Debian02:/home/seck2/dossier2/rep21# ls dossier1
+fich11
+root@Debian02:/home/seck2/dossier2/rep21# cp -r ../../dossier2 ../../rep3
+root@Debian02:/home/seck2/dossier2/rep21# ls ../../rep3
+dossier2
+root@Debian02:/home/seck2/dossier2/rep21# ls ../../rep3/dossier2
+rep21
+root@Debian02:/home/seck2/dossier2/rep21# rm -r ../../rep3/
+root@Debian02:/home/seck2/dossier2/rep21# ls ../../
+doc2  dossier1  dossier2
+root@Debian02:/home/seck2/dossier2/rep21# rm -r ../../do
+doc2/     dossier1/ dossier2/
+root@Debian02:/home/seck2/dossier2/rep21#
+
+exercice 3
+bash: root@Debian02:/home/seck2#: No such file or directory
+root@Debian02:/home/seck2/dossier2/rep21#
+root@Debian02:/home/seck2/dossier2/rep21# apt-get
+apt 1.0.9.8.4 for amd64 compiled on Dec 11 2016 09:48:19
+Usage: apt-get [options] command
+       apt-get [options] install|remove pkg1 [pkg2 ...]
+       apt-get [options] source pkg1 [pkg2 ...]
+
+apt-get is a simple command line interface for downloading and
+installing packages. The most frequently used commands are update
+and install.
+
+Commands:
+   update - Retrieve new lists of packages
+   upgrade - Perform an upgrade
+   install - Install new packages (pkg is libc6 not libc6.deb)
+   remove - Remove packages
+   autoremove - Remove automatically all unused packages
+   purge - Remove packages and config files
+   source - Download source archives
+   build-dep - Configure build-dependencies for source packages
+   dist-upgrade - Distribution upgrade, see apt-get(8)
+   dselect-upgrade - Follow dselect selections
+   clean - Erase downloaded archive files
+   autoclean - Erase old downloaded archive files
+   check - Verify that there are no broken dependencies
+   changelog - Download and display the changelog for the given package
+   download - Download the binary package into the current directory
+
+Options:
+  -h  This help text.
+  -q  Loggable output - no progress indicator
+  -qq No output except for errors
+  -d  Download only - do NOT install or unpack archives
+  -s  No-act. Perform ordering simulation
+  -y  Assume Yes to all queries and do not prompt
+  -f  Attempt to correct a system with broken dependencies in place
+  -m  Attempt to continue if archives are unlocatable
+  -u  Show a list of upgraded packages as well
+  -b  Build the source package after fetching it
+  -V  Show verbose version numbers
+  -c=? Read this configuration file
+  -o=? Set an arbitrary configuration option, eg -o dir::cache=/tmp
+See the apt-get(8), sources.list(5) and apt.conf(5) manual
+pages for more information and options.
+                       This APT has Super Cow Powers.
+root@Debian02:/home/seck2/dossier2/rep21# ls /etc/skel
+root@Debian02:/home/seck2/dossier2/rep21# ls -la /etc/skel
+total 28
+drwxr-xr-x   2 root root  4096 Oct 20 15:12 .
+drwxr-xr-x 136 root root 12288 Feb  2 01:34 ..
+-rw-r--r--   1 root root   220 Nov 12  2014 .bash_logout
+-rw-r--r--   1 root root  3515 Nov 12  2014 .bashrc
+-rw-r--r--   1 root root   675 Nov 12  2014 .profile
+root@Debian02:/home/seck2/dossier2/rep21# touch  /etc/skel/tdsi
+root@Debian02:/home/seck2/dossier2/rep21# adduser mouhamed
+Adding user `mouhamed' ...
+Adding new group `mouhamed' (1009) ...
+Adding new user `mouhamed' (1001) with group `mouhamed' ...
+Creating home directory `/home/mouhamed' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for mouhamed
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n]
+root@Debian02:/home/seck2/dossier2/rep21# ls /home/mouhamed
+tdsi
+root@Debian02:/home/seck2/dossier2/rep21# useradd modou
+root@Debian02:/home/seck2/dossier2/rep21# ls /home/modou
+ls: cannot access /home/modou: No such file or directory
+root@Debian02:/home/seck2/dossier2/rep21# ls /home/
+debian  mouhamed  seck  seck1  seck2  seck3  seck4  secka
+root@Debian02:/home/seck2/dossier2/rep21# cd ~
+root@Debian02:~# cd -
+/home/seck2/dossier2/rep21
+root@Debian02:/home/seck2/dossier2/rep21# cd -
+/root
+root@Debian02:~#
+
+
+
+
+
+
+
+
+examen 2017-2018  linux
+exo3
+root@Debian02:/home/seck2# adduser test1
+Adding user `test1' ...
+Adding new group `test1' (1010) ...
+Adding new user `test1' (1008) with group `test1' ...
+Creating home directory `/home/test1' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for test1
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n]
+root@Debian02:/home/seck2# adduser test2
+Adding user `test2' ...
+Adding new group `test2' (1011) ...
+Adding new user `test2' (1010) with group `test2' ...
+Creating home directory `/home/test2' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for test2
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n]
+root@Debian02:/home/seck2# adduser test3
+Adding user `test3' ...
+Adding new group `test3' (1012) ...
+Adding new user `test3' (1011) with group `test3' ...
+Creating home directory `/home/test3' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for test3
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n]
+root@Debian02:/home/seck2# adduser test4
+Adding user `test4' ...
+Adding new group `test4' (1013) ...
+Adding new user `test4' (1012) with group `test4' ...
+Creating home directory `/home/test4' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for test4
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n]
+root@Debian02:/home/seck2# nano /etc/adduser.conf
+root@Debian02:/home/seck2# le shell des utilisateur est /bin/bash
+bash: le: command not found
+root@Debian02:/home/seck2# chsh test3
+Changing the login shell for test3
+Enter the new value, or press ENTER for the default
+        Login Shell [/bin/bash]: /bin/sh
+root@Debian02:/home/seck2# addgroup projet1
+Adding group `projet1' (GID 1014) ...
+Done.
+root@Debian02:/home/seck2# grep projet1 /etc/group
+projet1:x:1014:
+root@Debian02:/home/seck2# adduser test1 projet1
+Adding user `test1' to group `projet1' ...
+Adding user test1 to group projet1
+Done.
+root@Debian02:/home/seck2# adduser test2 projet1
+Adding user `test2' to group `projet1' ...
+Adding user test2 to group projet1
+Done.
+root@Debian02:/home/sec.
+
+
+
+
+k2# grep projet1 /etc/group
+projet1:x:1014:test1,test2
+root@Debian02:/home/seck1# cd /home/test1
+root@Debian02:/home/test1# ls -l
+total 4
+drwxr-xr-x 4   225 test1 4096 Mar  1 14:16 Projets
+-rw-r--r-- 1 test1 test1    0 Mar  1 13:34 tdsi
+7.a
+root@Debian02:/home/test1#  chmod -v 225 Projets/
+mode of ‘Projets/’ changed from 0755 (rwxr-xr-x) to 0225 (-w--w-r-x)
+root@Debian02:/home/test1# chmod -v u-xr g=w o+r Projets/  //notation par caractere
+
+7.b
+adduser test2 test1//ajouter test2 dans le groupe de test1
+chmod -v 771 Projets/Projet1
+chmod g+w Projets/Projet1      //notation par caractere
+
+7.c
+chmod -v 700 Projets/Projet2
+chmod g-xr o-x Projets/Projet2     	//notation par caractere

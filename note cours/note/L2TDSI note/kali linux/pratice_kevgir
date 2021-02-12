@@ -1,0 +1,3 @@
+netdiscover //pour rechercher les machines disponible sur notre reseau
+nmap 192.168.*.* plus rapide 
+nikto

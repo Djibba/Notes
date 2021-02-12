@@ -1,0 +1,284 @@
+								CHAPITRE 1
+Le shell est un programme qui s’exécute quand un utilisateur se logue à la machine
+Unix. Il est chargé de:
+✓ Présenter le prompt spécifique à l’utilisateur,
+✓ Envoyé les commandes (instructions) de l’utilisateur au système
+✓ Enregistrer certaines variables de l’environnement de l’utilisateur 
+(env , printenv,echo $PATH, printenv $HOME)
+✓ Le Prompt d’utilisateur simple: utilisateur @ nom_machine : répertoire $
+.bashrc : script exécuté à chaque connexion de l utilisateur. Il permet de définir
+des alias, d'exécuter des commandes ou de positionner des variables d'environnement, par exemple,
+alias rm='rm --preserve-root'
+.bash_logout : Lors de la déconnexion d'un système Linux exécutant le shell BASH, le fichier .bash_logout est exécuté.
+ Ce fichier est généralement très court et contient des commandes que les utilisateurs souhaitent exécuter à la sortie
+ du compte. Le plus populaire est la commande clear , qui efface l'écran.
+Les autres shells utilisent généralement .logout au lieu de .bash_logout .
+.bash_history : historique des commandes utilisées,
+/etc/profile :Fichier de configuration de tout les profiles de tout les utilisateurs quelque soit leur shell
+/etc/bash.bashrc :Fichier de configuration spécifique à bash pour tout les utilisateurs 
+les fichiers .profile et .bashrc permettent de configure respectivement le profile et le shell bash personnel à l’utilisateur
+« jouter vos aliase – exemple: aliase dir=‘ls -al’ »
+source .bashrc «Décommettez la ligne force_color_prompt=yes» //« Recharger le bashrc »
+
+"cat /etc/passwd" //« pour savoir quel Shell on est entrain d’utiliser »
+Pour changer le shell par défaut pour les nouveaux utilisateurs, il faut
+modifier le fichier de configuration de la commande adduser
+nano /etc/adduser.conf//« Changez la ligne : DSHELL=/bin/bash 
+
+
+Les variables d'environnement constituent un moyen d 'influencer le
+comportement des logiciels sur votre système. 
+printenv || env # afficher les variables d’environnement et leur valeur
+echo $PATH # afficher la valeur de la variable $PATH
+root@debian-server:~# a= ‘Bonjour TDSI’ # déclarer une variable a
+root@debian-server:~# echo $a
+root@debian-server:~# export a #exporter la variable a dans les variables d’environnement
+root@debian-server:~# print env
+root@debian-server:~# unset a # détruire la variable a
+root@debian-server:~# printenv
+
+l'utilisateurs system est utiliser par un service
+								CHAPITRE 2:NIVEAU DE DEMARRAGE
+	✓ Le run level, ou niveau de fonctionnement, est un chiffre ou une lettre
+utilisé par le processus init des systèmes de type Unix pour déterminer
+les fonctions activées.
+	✓ Le run level varie généralement de 0 à 6. Chacun correspond à un
+ensemble d'applications à mettre en marche. En général, plus le run level
+est élevé, plus il y aura de fonctions actives.
+	✓ Le fichier /etc/inittab détermine le run level par défaut du système au
+démarrage, ainsi que les fonctions actives à chaque run level.
+
+Lors d'un changement de run level :
+➢ les scripts dont le nom commence par un K dans le répertoire correspondant
+au niveau actuel sont lancés (dans l'ordre des numéros) avec le paramètre
+stop, ce qui a normalement pour effet d'arrêter le service correspondant,
+➢ les scripts du nouveau niveau qui commencent par S sont appelés
+successivement avec le paramètre start
+
+Les run levels ne sont pas tous normalisés, en général la signification
+suivante est adoptée :
+➢ 0 : Arrêt
+➢ 1 : Mode mono-utilisateur ou maintenance
+➢ 2 à 5 : dépend du système d'exploitation
+➢ 6 : Redémarrage
+
+									init
+✓ init (abréviation de initialisation) est le premier programme informatique
+exécuté sur les systèmes d'exploitation basés Unix. Il est exécuté comme
+un démon informatique et possède l'identifiant de processus (PID) 1. init
+est lancé par le noyau (kernel en anglais) et reste actif jusqu'à ce que le
+système soit éteint. Il est le parent direct ou indirect de tous les autres
+programmes lancés sur le système.
+✓ Le programme init est à la fois la première tâche que le noyau exécute
+lorsqu'on boot un ordinateur et la dernière tâche présente avant l'arrêt de
+l'ordinateur.
+✓ Au démarrage, le programme init du système Unix System V lit le fichier
+/etc/inittab, le champ initdefault déterminant le niveau de
+fonctionnement par défaut.
+
+					CHAPITRE 3 GESTION DE FICHIERS ET REPERTOIRES
+libpam-cracklib	I:16	114	Modules attachables d’authentification permettant
+ la prise en compte de cracklib
+Pour vérifier votre identification de l utilisateur et voir le groupe(s) auquel vous
+appartenez, tapez la commande "id"	
+Ces droits sont définis pour 3 types d'utilisateurs:
+➢le propriétaire du fichier (u = user)
+➢le groupe auquel appartient le fichier (g = group)
+➢tous les autres utilisateurs (o = other)
+➢a = all signifie user+group+other
+• 2 est le nombre de liens vers le fichier concerné.
+La commande chmod permet de modifier les droits d'accès. Elle peut
+être utilisée de deux façons différentes (symbolique et octal). Pour
+pouvoir changer les droits on doit spécifier:
+		Valeur numérique pour chmod
+x=1    w=2    r=4
+//exemple
+"chmod 600 rapport.txt"
+"chown patrick:amis rapport.txt"
+Seulement root peut changer le propriétaire (owner) d’un fichier ou répertoire.
+L’option –v permet d’afficher les modifications réalisées :
+chown -v user1 listeEtu.txt
+						
+						CHAPITRE 5 compte et groupe utilisateurs
+
+	/etc/passwd 	:		informations sur les utilisateurs
+seck2:x:1003:1003:saliou seck,10,772412765,776524319,cool(autre):/home/seck2:/bin/bash
+Désactivation d'un compte par le placement d'un * à la place du mot de passe dans le fichier /etc/passwd.
+* pas de mot de pass
+! mot de passe desactiver
+pwck : Vérification de la cohérence des fichiers /etc/passwd et /etc/shadow.
+	/etc/shadow				fichier de mot de passe
+Si non activé utiliser le paquet shadowutils
+root@debian:~# pwconv
+Pour le désactiver
+root@debian:~# pwunconv
+user1:$6$z5MG…….BofKJFUDWsea/:17187:0:99999:7: -1 : -1 :
+✓ 17187: c'est le nombre de jours entre le 1er janvier 1970 et la date de dernier
+changement du mot de passe.
+✓ 0: c'est le nombre de jours avant que le mot de passe ne puisse être changé.
+Usuellement, la valeur est = 0. Ce champ n'est pas souvent utilisé.
+✓ 99999: correspond au nombre de jours après quoi le mot de passe doit être
+modifié. Ce champ est rarement utilisé. Par défaut, sa valeur est 99999.
+✓ 7: nombre de jours pour lequel un utilisateur est averti que son mot de passe
+expirera.
+✓ -1: est le nombre de jours après quoi le mot de passe expire de sorte que le
+compte est désactivé. -1 est utilisé pour indiquer un nombre infini de jours
+(ce qui veut dire que cette propriété du compte n'est pas considérée).
+✓ -1: est le nombre de jours entre le 1er janvier 1970 et la date de désactivation
+du compte.
+
+Les significations des valeurs d'exception sont :
+Chaîne vide - Le compte n'a pas de mot de passe. Signalé par "NP" sur le système d'exploitation Solaris7.
+"!" - Le compte est verrouillé. L'utilisateur ne pourra pas se connecter via l'authentification par mot de passe, mais d'autres méthodes d'authentification (par exemple, la clé SSH) peuvent encore être utilisées8.
+"*LK*" ou "*" - Le compte est verrouillé. L'utilisateur ne pourra pas se connecter via l'authentification par mot de passe, mais d'autres méthodes (par exemple la clé SSH) peuvent encore être autorisées) 8.
+"!!" - Le mot de passe n'a jamais été défini9.
+
+	/etc/group
+informations sur les groupes
+Groupe:mot-de-passe:GID:liste-des-membres-du-groupe
+
+	/etc/login.defs - Configuration et definition des users
+	Le fichier /etc/login.defs définit la configuration de la suite shadow password (mots de
+       passe cachés) pour le système
+✓ ENV_SUPATH (chaîne de caractères)
+Si définie, sera utilisée pour définir la variable d'environnement PATH quand le superutilisateur 
+se connecte.
+✓ FAIL_DELAY (nombre)
+Le délai en secondes avant qu'un nouvel essai soit permis après un échec de connexion.
+✓ FAKE_SHELL (chaîne de caractères)
+Si définie, login exécutera cet interpréteur de commandes au lieu de l'interpréteur de
+l'utilisateur spécifié dans /etc/passwd.
+✓ GID_MAX (nombre), GID_MIN (nombre)
+Plage d'identifiants numériques de groupes que les commandes useradd, groupadd ou
+newusers peuvent utiliser pour la création des groupes normaux. La valeur par défaut pour
+GID_MIN (respectivement GID_MAX) est 1000 (respectivement 60000).
+✓ LOGIN_TIMEOUT (nombre)
+Le temps maximum en secondes pour la connexion.
+/etc/login.defs - Configuration et definition des users
+✓ PASS_MAX_DAYS (nombre)
+Nombre maximum de jours de validité d'un mot de passe. Après cette durée, une
+modification du mot de passe est obligatoire. S'il n'est pas précisé, la valeur de -1 est
+utilisée (ce qui enlève toute restriction).
+✓ PASS_MIN_DAYS (nombre)
+Nombre minimum de jours autorisé avant la modification d'un mot de passe. Toute
+tentative de modification du mot de passe avant cette durée est rejetée. S'il n'est pas
+précisé, la valeur de -1 est utilisée (ce qui enlève toute restriction).
+✓ PASS_WARN_AGE (nombre)
+Nombre de jours durant lesquels l'utilisateur recevra un avertissement avant que son
+mot de passe n'arrive en fin de validité. Une valeur négative signifie qu'aucun
+avertissement n'est donné. S'il n'est pas précisé, aucun avertissement n'est donné.
+✓ NB: Les paramètres PASS_MAX_DAYS, PASS_MIN_DAYS et PASS_WARN_AGE ne
+sont utilisés qu'au moment de la création d'un compte. Les changements n'affecteront pas
+les comp
+
+				CREATION MANUELLE D UN COMPTE UTILISATEUR
+-MODIFIER  /etc/passwd puis /etc/shadow puis /etc/group
+-copier le rep /etc/skel vers /home/user 
+-changer les droit du rep personnel du new user 
+# chown -R doudou:doudou /home/doudou
+definir un mot de pass 
+
+				METHODE AUTOMATIQUE
+Useradd
+Fichier de configuration par défaut de useradd /etc/default/useradd
+Userdel
+supprimer un compte utilisateur et les fichiers associés
+KILLALL –KILL –u LOGIN
+pour killer tout les processus de l’utilisateur avant sa suppression
+userdel [options] LOGIN
+-f, --force
+Cette option impose la suppression de l'utilisateur, même s'il
+est encore connecté. Elle force également userdel à supprimer son
+répertoire personnel et sa file d'attente des courriels. si un groupe existe avec le
+même nom que l'utilisateur supprimé, alors ce groupe sera supprimé, même s'il
+s'agit du groupe primaire d'un autre utilisateur.
+-r, --remove
+Les fichiers présents dans le répertoire personnel de
+l'utilisateur seront supprimés en même temps que le répertoire
+lui-même, ainsi que le répertoire d'attente des courriels.
+					Ajouter un utilisateur ou un groupe au système
+					/etc/adduser.conf.
+Ajouter un utilisateur système:
+adduser --system [option] user
+UMASK (nombre)
+Valeur d'initialisation du masque de permissions. S'il n'est pas précisé,
+des permissions sera initialisé à 022.
+useradd et newusers utilisent ce masque pour définir les permissions d'acc
+répertoires personnels qu'ils créent.
+
+✓ Ajouter un groupe utilisateur: avec adduser et l'option –group ou
+addgroup [options] [--gid ID] groupe
+✓ Ajouter un groupe système:
+addgroup --system [options] [--gid ID] groupe
+✓ Ajouter un utilisateur existant à un groupe existant:
+adduser [options] utilisateur groupe
+
+✓ Retirer un utilisateur normal
+deluser [options] [--force] [--remove-home] [--remove-all-files]
+[--backup] [--backup-to REP] utilisateur
+✓ Retire un groupe:
+deluser --group [options] groupe
+delgroup [options] [--only-if-empty] groupe
+✓ Retire un utilisateur d'un groupe
+deluser utilisateur groupe
+
+				Usermod[option] login
+-a, --append
+Ajouter l'utilisateur aux groupes supplémentaires. N'utilisez
+cette option qu'avec l'option –G
+-l, --login NOUVEAU_LOGIN
+Le nom de l'utilisateur passera de LOGIN à NOUVEAU_LOGIN.
+"usermod-l new_name old_name"// renomme l'utilisateur
+Rien d'autre ne sera modifié
+-L, --lock
+Verrouiller le mot de passe d'un utilisateur. Cette option ajoute un « ! »
+devant le mot de passe chiffré, ce qui désactive le mot de passe
+
+				groupmod [options] GROUPE
+-g, --gid GID
+L'identifiant numérique du groupe GROUPE sera modifié vers GID.
+-n, --new-name NOUVEAU_NOM_GROUPE
+Le nom du groupe sera modifié de GROUPE vers NOUVEAU_NOM_GROUPE
+
+				Administrer /etc/group
+gpasswd [option] groupe
+-a, --add utilisateur
+Ajouter l'utilisateur à ce groupe.
+-d, --delete utilisateur
+Enlever l'utilisateur de ce groupe.
+-h, --help
+Afficher un message d'aide et quitter.
+-r, --remove-password
+Enlever le mot de passe pour ce groupe.. Seuls les membres du
+groupe seront autorisés à utiliser newgrp pour rejoindre ce groupe.
+-R, --restrict
+Restreindre l'accès à ce groupe. Le mot de passe du groupe est
+défini à « ! ». pour interdire aux membres du groupe stagiaire de
+s’approprier momentanément stagiaire comme groupe primaire.
+-A, --administrators utilisateur,...
+Configurer la liste des administrateurs.
+-M, --members utilisateur,...
+Configurer la liste des membres du groupe.
+
+			Modifier le mot de passe d'un utilisateur
+passwd [options] [LOGIN]
+-d, --delete
+Supprimer le mot de passe (le rendre vide) d'un utilisateur.
+Il rend le compte indiqué sans mot de passe.
+-e, --expire
+Annuler immédiatement la validité du mot de passe d'un compte.
+Ceci permet d'obliger un utilisateur à changer son mot de passe
+lors de sa prochaine connexion.
+-S, --status
+Afficher l'état d'un compte.
+
+
+
+
+le protocol icmp n'a pas de port
+
+
+
+
+
+

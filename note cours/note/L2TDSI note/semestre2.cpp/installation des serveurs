@@ -1,0 +1,42 @@
+//installation et configuration de dhcp
+installation:  apt-get install isc-dhcp-server
+
+Routeur cisco
+activer le service DHCP avec les commandes suivantes :
+service dhcp
+ip dhcp pool nom_pool
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.254
+
+MACHINE LINUX(centos)
+
+
+DHCP Server Configuration file.
+#   see /usr/share/doc/dhcp*/dhcpd.conf.example
+#   see dhcpd.conf(5) man page
+#
+
+default-lease-time 86400; # Bail de 24h
+max-lease-time 172800; # Bail maxi de 48h
+
+#declaration d'un reseau
+subnet 192.168.198.0 netmask 255.255.255.0 { //on met ip de notre reseau
+        range dynamic-bootp                   192.168.198.100 192.168.198.199;//on met les ip du reseau
+        #option domain-name-servers     192.168.198.11; # DNS
+        option routers                 192.168.198.1; #Passerelle
+}
+
+[root@dlp ~]# systemctl start dhcpd 
+[root@dlp ~]# systemctl enable dhcpd 
+
+
+------------------------------------------------------------------------------------------------------
+//INSTALLATION DU SERVEUR SAMBA
+ yum install samba samba-common -y
+
+
+Test de syntaxe d’écriture du fichier smb.conf :testparm /etc/samba/smb.conf
+Stop les services Samba :/etc/init.d/samba stop
+Démarre le serveur Samba :/etc/init.d/samba start
+Redémarrage de Samba :/etc/init.d/samba restart
+Affiche les connexions actives via Samba :/smbstatus

@@ -1,0 +1,95 @@
+//attendre la definition
+$(document).ready(function() {
+    // Ici, le DOM est entièrement défini
+  });
+//equivalent a ce qui suit
+  $(function() {
+    // Ici, le DOM est entièrement défini
+  });
+  
+//Méthodes jQuery
+
+// Pour exécuter une méthode jQuery, il suffit de préciser son nom à la suite d'un sélecteur en 
+// le séparant de ce dernier par un point :
+$(sélecteur).méthode(paramètres);
+
+//la methode html
+$(function() {
+    $('#monid').html('Hello world. Ce texte est affiché par jQuery.');
+  });
+
+//------------------Fonctionnement de base de jQuery
+/*  jQuery repose sur une seule et unique fonction :jQuery(), ou son alias,$(). Cette fonction accepte
+    un ou plusieurs paramètres et retourne un objet que nous appellerons « objet jQuery ». 
+    Les paramètres peuvent être d'un des types suivants :
+
+    -- Une fonction, qui sera exécutée dès que le DOM est disponible. Cette technique est très largement
+    utilisée par tous les programmeurs jQuery.
+
+    -- Un sélecteur CSS : l'élément (ou les éléments) qui correspondent au sélecteur sont retournés.
+    Nous allons nous intéresser à cette technique dans ce chapitre.
+
+    -- Un élément HTML, un document ou l'objetwindow: un objet jQuery correspondant à cet élément est retourné.
+
+    -- Une (ou plusieurs) balise(s) HTML : un objet jQuery correspondant à cette (ces) balise(s) est retourné.
+    Vous pouvez lui appliquer des méthodes jQuery, par exemple pour ajouter cette (ces) balise(s) dans 
+    un élément HTML.  
+*/
+
+//------------ Quelle est la nature de l'objet retourné ?
+/*Le résultat retourné par la fonction$()est un objet jQuery. Cet objet ressemble à un tableau : il a une 
+propriétélengthet les éléments sélectionnés peuvent être accédés par un indice.*/
+$('a').length   //retourne le nombre de liens hypertextes contenus dans la page.
+$('a')[0]   //retourne le premier lien hypertexte de la page.
+
+//------------- Fonctions de rappel
+    //Fonctions de rappel
+
+        /*Une fonction de rappel (ou callback en anglais) est une fonction exécutée lorsqu'une autre fonction
+        a terminé de s'exécuter.*/
+        $(function() {
+            $(".rouge").fadeOut("slow",function(){
+              $(this).fadeIn("slow");
+            }); 
+        });
+
+    //Chaînage de méthodes    
+    $('.rouge').css('background','red');
+    $('.rouge').css('color','yellow');
+        //equivalent 
+    $('.rouge').css('background','red').css('color','yellow');
+    $(':header:not(h1)').hide();//Toutes les balises de titre sont cachées, à l'exception de la balise <h1>.
+    $('div:hidden').show();
+
+//Parcourir les éléments sélectionnés
+
+      $(function() {
+        $('img').each(function(index){
+          this.src = 'images2/i' + (index+1) + '.jpg';
+        });  
+      }); 
+
+//Conversion d'une variable JavaScript en un objet jQuery
+var variableJS = 'un simple texte';
+var variableJQ = $(variableJS);
+
+//Conversion d'un objet jQuery en un élément du DOM
+var spans = $('span').get();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

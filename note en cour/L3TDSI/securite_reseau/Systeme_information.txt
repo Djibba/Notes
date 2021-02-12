@@ -1,0 +1,60 @@
+Le système d'information (SI) est un ensemble organisé de ressources qui permet de collecter, stocker, traiter et 
+distribuer de l'information.un ensemble de ressources, à la fois humaines, matérielles et immatérielles dont le rôle 
+est de collecter, stocker, traiter et distribuer de l’information.
+le SI permet d'automatiser et de dématérialiser quasiment toutes les opérations incluses dans les activités ou procédures 
+de notre vie quotidienne personnelle ou professionnelle.
+
+API, est l’acronyme de « Application Programming Interface ». C’est une relation entre deux systèmes informatiques qui 
+leur permettent de communiquer et d’échanger des informations.
+
+La sécurité des systèmes d’information est l’ensemble des moyens techniques, organisationnels, juridiques et humains 
+nécessaires à la mice de moyens visant à empêcher l'utilisation non-autorisée, le mauvais usage, la modification ou 
+le détournement d’un système d'information.
+
+la DSI est la direction responsable de l’ensemble des éléments qui constituent le Système d'Information d'une entreprise, 
+que l’on a vu précédemment.
+Le travail d’une DSI se trouve aux confins des technologies (pour faire fonctionner le SI) mais doit aussi s'envisager4 
+sous l’aspect du service rendu aux utilisateurs du SI
+
+Rôle 1 : Opérateur au service des utilisateurs
+La première préoccupation des DSI est de faire fonctionner au quotidien le SI au profit des utilisateurs tout en assurant 
+une prise en compte efficiente des coûts.
+
+Rôle 2 : Accompagner le changement
+Rôle 3 : Être acteur de l’innovation
+Rôle 4 : Se placer comme partenaire stratégique des autres directions
+
+
+8 fonctions !
+    L’assistance utilisateur ;
+    La relation fournisseurs ;
+    La production et l’infra ;
+    Les fonctions support ;
+    L’expertise ;
+    Les études ;
+    Les fonctions transverses ;
+    Le pilotage de la DSI. 
+    
+Menaces: adversaires déterminés capables de monter une attaque exploitant une vulnérabilité
+Vulnérabilités: failles de sécurité dans un ou plusieurs systèmes
+Attaques :
+    ➢ représentent les moyens d'exploiter une
+        vulnérabilité.
+    ➢ Il peut y avoir plusieurs attaques pour une même
+        vulnérabilité mais toutes les vulnérabilités ne 
+        sont pas exploitables
+
+Attaques passives: Ecouter sans modifier les données ou le fonctionnement du réseau.
+Attaques actives:
+    ▪ Modifier des données ou des messages,
+        à s'introduire dans des équipements
+        réseau ou à perturber le bon
+        fonctionnement de ce réseau.
+    ▪ Peut être exécutée sans la capacité
+
+Ethical Hacking consiste à identifier les faiblesses des systèmes informatiques et/ou des réseaux informatiques et à proposer des contre-mesures
+qui les protègent.
+
+Defense in Depth
+
+security password min-length 

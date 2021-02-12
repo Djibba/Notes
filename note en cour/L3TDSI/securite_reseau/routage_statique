@@ -1,0 +1,25 @@
+Le routeur permet le determination du meilleur chemin pour envoyer des paquets et la transmission des paquets
+vers leur destination
+
+Lacommande show ip route est utilisée pour afficher la table de routage
+La commande show interfaces indique l’état et donne une description détaillée de toutes les interfaces
+présentes sur le routeur.
+La commande show ip interface brief peut être utilisée pour afficher une partie des informations d’interface,
+sous forme condensée.
+La commande show running-config affiche le fichier de configuration en cours d’utilisation par le routeur
+La commande debug ip routing permet devoir les modifications apportées par le routeur lors de l’ajout et de 
+la suppression de routes. Désactivez debug ip routing à l’aide de la commande undebug ip routing ou de la commande 
+undebug all ou no debug all.
+
+CDP(Cisco Discovery Protocol) est un protocole de couche 2 qui relie des médias physiques de niveau inférieur et 
+des protocoles de couche réseau de niveau supérieur
+
+La commande show cdp neighbors [type number][detail]peut être utilisée pour obtenir les informations suivantes:
+    Identificateurs de périphériques
+    Liste d’adresses
+    Identificateur de port
+    Liste de capacités
+    Plateforme
+    
+Les routes statiques sont communément utilisées lors du routage d’un réseau vers un réseau d’extrémité.
+Un réseau d’extrémité est un réseau accessible parune seuleroute.

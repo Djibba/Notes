@@ -1,0 +1,19 @@
+ Pour que Bootstrap fonctionne il faut le déclarer dans les pages HTML, qui doivent être 
+ impérativement au format HTML 5, il faut donc prévoir le bon DOCTYPE :
+
+<head>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <script src="bootstrap/js/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+ 
+ //initial-scale niveau de zoom
+ //CONTAINER
+  class="container"  --> permet de mettre une marge par défaut
+  class="container-fluid" il prend toute la page
+  //Grid System
+xs<768px phone
+sm>=768px tablets
+md>=992px desktop
+lg>=1200px large desktop

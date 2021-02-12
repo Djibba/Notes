@@ -1,0 +1,292 @@
+Définition d’un réseau
+On appelle réseau le résultat de l’interconnexion de
+plusieurs machines entre elles.
+ICMP (Internet Control Message Protocol - Protocole de message de contrôle sur Internet) est un protocole de niveau 3 sur le modèle OSI, qui permet le contrôle des erreurs de transmission.
+
+			Peer to Peer
+avantages
+	-facile a configurer
+	-Moins complexe
+	-cout inferieur etant donne que les peripheriques reseau et les serveur dedies peuvent ne pas etre neccessaires
+	-peut etre utiliser pour des taches simple
+Inconveniants
+	-pas d'administration centralise
+	-peu securise
+	-non evolitif
+	-tous les perif peuve servir a la fois de client et de serveur
+Composants d'un réseau
+Les composants d'un réseau se classent en trois catégories :
+ Les périphériques (ou le matériel)
+ Les supports de transmission (Multimédia)
+ Les services (logiciels, applications)
+
+Équipements de l'infrastructure réseau
+	 Carte réseau – une carte réseau, ou adaptateur de réseau local, fournit la connexion physique au réseau
+à partir de l'ordinateur ou d'un autre périphérique hôte. Les supports qui relient l'ordinateur 
+au périphérique réseau se branchent directement à la carte réseau.
+	 Port physique – connecteur ou prise sur un périphérique réseau par lequel/laquelle le 
+support est connecté à un hôte ou à un autre périphérique réseau.
+	 Interface – ports spécifiques d'un périphérique interréseau qui se connectent à des réseaux
+individuels. Puisque les routeurs sont utilisés pour interconnecter des réseaux, les
+ports sur un routeur sont appelés interfaces réseau			
+	intranet:c'est un interrreseau qui n'est generalement accessible que depuis le site d'une 
+entreprise
+	Extranet: une entreprise peut utiliser u extranet pour fournir un accé sécurisé aux personnes qui 
+travaillent pour d'autre entreprise mais qui ont besoin des donnees de l'entreprise en question
+	 encapsulation: c'est le proccessus consistant a placer un format de message dans un autre.elle
+consiste a inclure les donnee d'un protocol dans un autre protocol
+	 protocol: les protocoles definissent un ensemble commun de regles d'echange des messages entre 
+les perifs
+	 segmentation:consiste a diviser les donnnees en partie de taille moin importante et plus
+facilement gerable pour les envoyer sur le reseau.
+	 multiplexage:c'est un processus qui sert a entremeler les parties des differentes conversation
+ entre elle sur le reseau
+				Fournisseur d'accés a internet
+@INTERNET POINT-ARC INFORMATIQUE-CONNEXION SANS FRONTIERE
+attentes des utilisateurs :
+ Tolérance aux pannes
+ Évolutivité
+ Qualité de service (gerer par le routeur)veille a ce que les priorites correspond au type  de la communication et a son importance pour l'entreprise
+ Sécurité
+
+
+				CHAPITRE 2
+Cisco Internetwork Operating System(IOS):ensemble de systeme d'exploitation reseau utilise sur les peripheriques Cisco
+
+				composant de ios : 
+-interpreteur de commande:interface utilisateur qui permet aux utilisateur de demander à l'ordinateur d'effectuer des taches spécifique  
+-Noyau élément qui assure la communication entre le materiel informatique et les logiciels
+-Matériel partie physique d'un ordinateur que integre des element electronique
+
+ethernet:Technologie LAN
+
+			L'IOS du routeur ou du commutateur fournit des options pour
+• Configurer les interfaces
+• Activer les fonctions de routage et de commutation
+
+			IOS stocké dans la mémoire Flash
+ Stockage non volatile : préservé en cas de coupure de l'alimentation
+ Peut être modifié ou remplacé si nécessaire
+ Peut être utilisé pour stocker plusieurs versions d'IOS
+ IOS copié de la mémoire flash vers la mémoire vive (RAM) non
+volatile
+ La quantité de mémoire RAM et Flash détermine l'IOS qui peut être
+utilisé
+
+les routeurs et les commutateur cisco assurent principalement les fonctions suivantes ou permettent de les effectuer
+securité - Routage- QS - Addressage - Gestion des ressources - Interface
+
+			Méthodes courantes pour accéder à l'interface en ligne de commande
+ Console
+		 Le périphérique est accessible même si aucun service réseau n'a été configuré
+		(hors réseau)
+		 Nécessite un câble de console spécial
+		 Permet d'entrer des commandes de configuration
+		 Doit être configuré avec des mots de passe pour empêcher les accès non autorisés
+		 Le périphérique doit se trouver dans une pièce sécurisée afin d'éviter l'utilisation non
+		autorisée du port de console
+Telnet
+		 Méthode d'accès à distance à l'interface en ligne de commande via le réseau
+		 Les services réseau doivent être activés et une interface active doit être
+		configurée
+Secure Shell (SSH)
+		 Connexion à distance analogue à Telnet, mais mieux sécurisée
+		 Authentification par mot de passe plus robuste
+		 Utilisation du chiffrement lors du transport des données
+ Port AUX
+
+		Logiciels permettant de se connecter à un périphérique réseau
+ PuTTY
+ Tera Term
+
+			Modes principaux
+
+	le mode d'execution utilisateur
+
+n'autorise qu'un nombre limité de commandes de surveillance de base et est souvent appelé mode "lecture seule"
+		
+	Mode d'exécution privilégié
+
+par défaut autorise toutes les commandes de surveillance, ainsi que l'exécution des commandes de configuration et de gestion. 
+		
+	Mode de configuration globale
+
+			Aide contextuelle
+
+			Configuration des noms d'hôte(hostname)
+
+			Sécurisation de l'accès aux périphériques
+
+	 Enable password : limite l'accès au mode d'exécution privilégié.
+	 Enable secret : mot de passe chiffré – limite l'accès au mode d'exécution privilégié.(algo md5)
+
+	 Mot de passe de console : limite l'accès aux périphériques par une connexion console.
+	line console 0 ->password cisco -> login 
+	 Mot de passe VTY : limite l'accès aux périphériques via Telnet
+	line vty 0 15 ->password cisco -> login 
+
+	POUR CHIFFRER LES MOT DE PASSE NON CHIFFRER
+		service password-encryption(algorithme de hachage type7  équivaut à l’algorithme de Vigénère.)
+
+		LES FICHIER DE CONFIGURATIONS
+	running-config(RAM)
+	startup-config(NVRAM)
+
+	erase startup-config
+
+	pour copier
+		copy running-config startup-config
+
+no suivi de la dernier commande permet de annuler une modification
+		MESSAGE DE BANIERE
+banner motd # notre message #
+
+Adresse IP : combinée au masque de sous-réseau, elle identifie de
+manière unique le périphérique final sur l'interréseau.
+	 Masque de sous-réseau : détermine quelle partie d'un réseau plus vaste
+est utilisée par une adresse IP.
+	 interface VLAN 1 : mode de configuration d'interface
+	 ip address 192.168.10.2 255.255.255.0 : configure l'adresse IP et le
+masque de sous-réseau du commutateur.
+	 no shutdown : active l'interface.
+	 Le commutateur doit toutefois avoir des ports physiques configurés et des
+lignes VTY pour que la gestion à distance soit possible
+
+127.0.0.1:permet de tester si notre carte reseau fonctionne //on peut faire un ping
+
+show ip interface brief
+ping teste la connectivite entre deux equipement
+Pourquoi utiliser un commutateur ?
+Intéressons-nous aux opérations suivantes :
+ Création d'un réseau composé de deux PC connectés via un
+commutateur
+ Attribution d'un nom au commutateur
+ Limitation de l'accès à la configuration des périphériques
+ Configuration des messages de bannière
+ Enregistrement de la configuration
+RECHERCHE  // fonctionnemet de la commande ping
+
+							CHAPITRE 3
+Le Protocol Data Unit ou Unité de données de protocole (PDU) est l'unité de mesure des informations échangées dans un réseau informatique.
+
+En raison des restrictions imposées pour la taille des trames,
+l'hôte source doit décomposer les messages longs en portions
+répondant aux impératifs de taille minimale et maximale.
+C'est ce que l'on appelle la segmentation
+
+La synchronisation affecte également la qualité de la
+réception et de la compréhension d'un message
+		Méthode d'accès:
+		Les hôtes d'un réseau ont besoin d'une méthode d'accès pour savoir à quel
+		moment ils doivent commencer à envoyer des messages et comment réagir
+		en cas d'erreurs.
+		 Contrôle de flux:
+		Dans une communication réseau, il arrive que l'hôte émetteur transmette
+		des messages plus rapidement que l'hôte de destination ne peut en recevoir
+		et traiter. Les hôtes source et de destination utilisent le contrôle de flux pour
+		négocier une synchronisation correcte en vue d'établir une communication.
+		 Délai d'attente de la réponse:
+		Les hôtes du réseau sont également soumis à des règles qui spécifient le
+		délai d'attente des réponses et l'action à entreprendre en cas de
+		dépassement du délai d'attente.
+un modele est une representation du fonctionnemnet d'un reseau
+
+			CHAPITRE 5
+ Les trames sont également désignées par le terme PDU (Protocol Data Unit).
+ Ethernet est la technologie LAN la plus répandue aujourd'hui.
+
+Ethernet fonctionne au niveau de la couche liaison de données et de la couche physique. Ethernet est une famille de technologies réseau définies par les normes IEEE 802.2 et 802.3
+
+LLC:
+	►Gère la communication entre la couche supérieure et la couche
+	inférieure
+	►Prend les données du protocole réseau et ajoute des
+	informations de contrôle pour faciliter la remise du paquet à sa
+	destination
+	►La mise en œuvre de la sous-couche LLC se fait au niveau
+	logiciel et est indépendante du matériel. Dans un ordinateur, la
+	sous-couche LLC est en quelque sorte le pilote de la carte
+	réseau. Le pilote de la carte réseau est un logiciel qui interagit
+	directement avec le matériel de la carte réseau pour transmettre
+	les données entre la sous-couche MAC et les supports
+	physiques.
+MAC
+• Constitue la sous-couche inférieure de la couche liaison de données
+• Implémentée par le matériel, généralement dans la carteréseau de l'ordinateur
+• Deux rôles essentiels :
+• Encapsulation des données
+	►Délimitation des trames:identification d'un groupe de bits formant une trame,
+synchronisation entre les nœuds de transmission et les nœuds de réception
+	►Adressage:chaque en-tête Ethernet ajouté à la trame contient l'adresse
+physique (MAC) qui permet de remettre celle-ci au nœud de destination
+	►Détection des erreurs:chaque trame Ethernet contient un code de fin (trailer)
+avec un contrôle par redondance cyclique (CRC, Cyclic Redundancy Check)
+du contenu des trames
+• Contrôle d'accès au support
+	•Régit le placement et le retrait des trames sur le support
+	• Communique directement avec la couche physique
+	• Si plusieurs périphériques utilisant le même support tentent d'envoyer
+des données en même temps, cela provoque une collision néfaste
+pour ces dernières
+	• Ethernet fournit une méthode pour contrôler comment les nœuds se
+partagent l'accès grâce à la technologie d'accès multiple avec écoute
+de porteuse (CSMA, Carrier Sense Multiple Access)
+
+Accès multiple avec écoute de porteuse (CSMA)
+• Méthode utilisée au début pour déceler si le support transporte un
+signal
+• Si aucune porteuse n'est détectée, le périphérique envoie ses données
+• Si deux périphériques transmettent en même temps, il y a collision de
+données
+Méthode d'accès au support CSMA avec évitement de collisions (CSMA/CA)
+• Le périphérique inspecte le support pour y détecter la présence d'un
+signal de données ; s'il n'y en pas, il envoie une notification dessus pour
+indiquer son intention de l'utiliser
+• Le périphérique transmet alors ses données
+• Cette méthode est utilisée par les technologies de réseau sans fil
+802.11
+Une adresse MAC Ethernet de couche 2 est une valeur binaire de 48 bits
+constituée de 12 chiffres hexadécimaux
+ L'IEEE demande aux revendeurs de suivre deux règles simples :
+• L'adresse doit utiliser dans ses 3 premiers octets l'identifiant unique (OUI)
+attribué au revendeur
+• Toutes les adresses MAC ayant le même identifiant OUI doivent utiliser
+une valeur unique dans les 3 derniers octets
+Les normes Ethernet II et IEEE 802.3 définissent une taille
+de trame minimale de 64 octets et maximale de 1 518
+octets
+L'adresse MAC de multidiffusion est une valeur spécifique qui commence par 01-00-5E au format hexadécimal
+La plage d'adresses de multidiffusion IPv4 est comprise entre 224.0.0.0 et 239.255.255.255
+Un commutateur examine les address mac et un routeur examine les address ip
+		ARP Address Resolution Protocol(QUESTION EXAMEN)
+	 La résolution des adresses IPv4 en adresses MAC
+	 La tenue d'une table des mappages(mettre a jour les tables)
+	Rôle d'ARP dans les communications à distance
+ Si l'hôte IPv4 de destination se trouve sur le réseau local,
+la trame utilise l'adresse MAC de ce périphérique comme
+adresse MAC de destination.
+ Si l'hôte IPv4 de destination n'est pas sur le réseau local,
+l'émetteur utilise la méthode ARP pour déterminer une
+adresse MAC pour l'interface du routeur qui sert de
+passerelle.
+ Si la table ne contient pas d'entrée pour la passerelle, une
+requête ARP est utilisée pour récupérer l'adresse MAC
+associée à l'adresse IP de l'interface du routeur
+$routeur show ip arp
+C:\>arp -a
+
+		PROBLEME LIEE AU PROTOCOL ARP
+-diffusion surcharge des support 
+-securite
+Limitation des problèmes engendrés par ARP
+mettre en place pluisieur switch
+
+Les commutateurs LAN de couche 2
+ Connectent les périphériques finaux à un équipement
+intermédiaire central sur la plupart des réseaux Ethernet
+ Effectuent la commutation et le filtrage en s'appuyant
+uniquement sur l'adresse MAC
+ Créent une table d'adresses MAC qu'ils utilisent pour
+prendre les décisions relatives à la transmission
+ Dépendent des routeurs pour transmettre les données d'un
+sous-réseau IP à l'autre

@@ -1,0 +1,51 @@
+telecharger des packet
+yum
+dpkg
+* pas de mot de pass
+! mot de passe desactiver
+"/etc/pam.d/common-password":Ce fichier est inclus à partir d'autres fichiers de configuration PAM spécifiques au service,
+# et devrait contenir une liste de modules qui définissent les services à
+# utilisé pour changer les mots de passe des utilisateurs
+La définition de logiciel libre a connu plusieurs révisions au fil du temps pour clarifier certaines subtilités. 
+Mais de manière concrète, pour qu’un logiciel soit qualifié de libre, il doit respecter 4 critères de libertés :
+
+La liberté d'exécuter le programme comme vous le souhaitez, et à toute fin (liberté 0);
+La liberté d'étudier le fonctionnement du programme, et le modifier comme vous le souhaitez pour votre ordinateur (liberté 1);
+La liberté de redistribuer les copies que vous avez reçues (liberté 2);
+La liberté de distribuer des copies de vos versions modifiées pour donner à toute la communauté une chance de profiter de vos modifications (liberté 3).
+
+Logiciels open-source
+Ils ont plus ou moins de restrictions, comme par exemple l'interdiction de revendre le logiciel
+Un logiciel Open Source est simplement un logiciel au code source ouvert, souvent ainsi ouvert
+ pour permettre à plusieurs personnes de travailler dessus
+
+un logiciel libre vous garantit trois libertés:
+La liberté d'utilisation, qui vous autorise à utiliser le logiciel pour tous les usages,
+ même commercial.
+La liberté de modification, qui vous autorise à modifier le logiciel.
+La liberté de distribution, qui vous autorise à distribuer le logiciel de toute manière,
+ en tout ou en partie.
+
+ Un logiciel gratuit est un logiciel propriétaire distribué gratuitement sans toutefois
+ conférer à l'utilisateur certaines libertés d'usage1,2,note 1 associées au logiciel libr0
+
+ Avantages de GNU/Linux 
+ -Insensibilité aux virus
+ -Choix très étendu : il existe plein de distributions Linux, on peut donc en trouver une qui couvre ses besoins.
+ -Plus de piratage de logiciels : la plupart sont gratuits, et utilisables en toute légalité.
+ -Moins exigeant en ressources matérielles.
+ -Certains périphériques n'ont pas de pilote pour Linux, ou sont mal gérés. Cela arrive quand les constructeurs ne 
+fournissent pas de pilotes Linux, ou ne fournissent pas les spécifications du matériel pour que la communauté Linux le fasse.
+
+Ubuntu,debian
+centOs,Red Hat
+Zenwalk,slackware
+
+X window est un environnemnt de bureau de type fenetré qui gère l'interaction homme machine par l'ecran la souris le clavier des ordi
+gestionnaire de bureau permet de gerer les fenetre leur apparence leur option etc
+Unity gnome KDE XFCE
+
+nano /etc/adduser.conf
+« Changez la ligne : DSHELL=/bin/bash par la ligne : DSHELL=/bin/zsh »
+
+systeme d'exploitation de linux et non de GNU/linux:Android 

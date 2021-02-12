@@ -1,0 +1,302 @@
+Un système est un ensemble d’éléments rassemblés pour réaliser un même
+objectif
+LA MÉTHODE MERISE (Méthode d’Etude et de Réalisation Informatique pour les Systèmes d’Entreprise)
+Un système d’information est un ensemble organisé de ressources(personnel,
+matériels, logiciels) permettant de:
+		★ Structurer les données
+		★ Stocker de manière efficace et cohérente
+		★ Acquérir de communiquer des informations sous forme de texte image,sons
+
+Un système d’information a pour rôle de :
+		★ Collecter les informations: enregistrer une information (support, papier ,informatique...) avant son traitement
+		★ Mémoriser l'information(stockage)
+		★ Traiter : effectuer des opérations (calcul, tri, classement, ...)
+		★ Diffuser: transmettre à la bonne personne (éditer,imprimer,afficher,...)une info après son traitement
+
+				Qualité d’un SI
+Pour que la gestion de l’entreprise soit adéquate, l’information produite et transmise
+doit être:
+		❖ Fiable
+		❖ Complète
+		❖ Exacte
+		❖ Pertinente
+		❖ Compréhensible
+		❖ Protégée
+		❖ Disponible au moment opportun
+
+	LES TROIS  SYSTEME D'UNE ORGANISATION
+		■ systeme de pilotage :qui constitue la machine proprement dite de production et de transformation des entrées en produits finis.
+		■ systeme operant:appelé aussi système de gestion qui pilote l'organisation et constitue son cerveau pensant.
+		■ systeme d'information:est la mémoire de l'organisation : il est responsable de la collecte, la mémorisation, le traitement et la diffusion de l'information. Il transmet au système de pilotage l'information nécessaire à la prise de décision.
+
+Un système d'information automatisé remplit les trois fonctions suivantes:
+		➔ Fonction de communication : permet au système de saisir les données en entrées et produire des résultats en sortie.
+		➔ Fonction de traitement : regroupe toutes les opérations de transformation qui s'appliquent aux données pour l'aboutissement aux résultats
+		➔ Fonction de mémorisation : stockage de programmes et des données sur support d’information
+
+		PROCESSUS DE DÉVELOPPEMENT D’UN SI
+Pour obtenir un logiciel de qualité il faut en maîtriser le processus d’élaboration:
+		➢ Le cycle de vie: Comment enchaîner les étapes.
+		➢ Le cycle de décision: Quelles décisions sont à prendre pour chaque étapes du cycle de vie.
+		➢ Le cycle d’abstraction: Quels outils permettent de les mener
+
+	Étapes du cycle de vie d’un SI
+		❏ Etude de faisabilité: Déterminer si le développement proposé vaut la peine d’
+		être mis en œuvre, compte tenu de attentes et de la difficulté de développement
+		❏ Spécification: Déterminer les fonctionnalités que doit posséder le logiciel.
+		❏ Organisation du projet: Déterminer comment on va développer le logiciel.
+		❏ Conception: Déterminer la façon dont dont le logiciel fournit les différentes fonctionnalités recherchées.
+		❏ Implementation: Codage du logiciel.
+		❏ Tests: Essayer le logiciel sur des données d’exemple pour s’assurer qu’il fonctionne correctement.
+		❏ Livraison: Fournir au client une solution logicielle qui fonctionne correctement
+		❏ Maintenance: Mettre à jour et améliorer le logiciel pour assurer sa pérennité
+
+		Que faut-il pour analyser, concevoir...?
+On doit :
+• Avoir une vision abstraite du fonctionnement,
+• Garantir les délais, la pertinence, lʼefficacité,
+• Faciliter la maintenance,....
+Nous avons, donc, besoin :
+• de MODÈLES,
+• de MÉTHODOLOGIE.
+1
+
+	Modèle...cʼest quoi ?
+Un modèle est par définition une représentation abstraite, dʼune partie du monde réel, exprimée dans un langage de représentation.
+
+Méthode: une démarche et un formalisme
+	❖ Démarche :
+		➢ succession d’étapes pour
+		➢ Mieux maı̂triser le déroulement d’un projet
+		➢ Meilleure visibilité pour les utilisateurs sur certains résultats
+		➢ intermédiaires et garantir que le résultat final sera celui attendu
+	❖ Formalisme défini par:
+		➢ Un langage formel
+		➢ Un langage semi-formel généralement graphique
+		➢ Un langage naturel
+	❖ Fonction :
+		➢ Représenter le monde réel tel qu’il est perçu par le concepteur
+		➢ Outil de communication entre informaticiens et utilisateurs
+		➢ Constitué par un ensemble de modèles permettant d’assurer une bonne compréhension des besoins des utilisateurs 1
+
+Méthodologie...pourquoi ?
+		• Formalisation claire et complète du p 
+		3roblème informationnel.
+		• Maîtrise de la résolution du problème par lʼutilisation de critères objectifs pour évaluer les solutions.
+		• Construction de SI pertinents, complets, cohérents, fiables flexibles et adaptatifs.
+		• Évaluation du SI à tout moment de son cycle de vie.
+		• Faciliter la coopération entre concepteurs, informaticiens gestionnaires, utilisateurs.
+		• Rigueur dans lʼélaboration de la solution.
+		• Réduire les coûts et les délais.
+
+MÉTHODOLOGIE...EXEMPLES
+		★ MERISE : Méthode dʼEtude et de Réalisation Informatique pour les Systèmes
+		dʼEntreprises
+		★ AXIAL : Analyse et conception des systèmes dʼinformations assistés par logiciel
+		(IBM, 86).
+		★ SSADM : Structured Systems Analysis and Design Method (CCTA, 80).
+		(Analyse structurée des systèmes & de la méthode de conception)
+		★ SADT : Structured Analysis and Design Technique (Softech, 77).
+		(Analyse structurée et technique de conception)
+		★ RUP: Rational Unified Process. (IBM, 2003)
+
+Modélisation c’est quoi?
+	La modélisation consiste à créer une représentation virtuelle d'une réalité de telle
+	façon à faire ressortir les points auxquels on s'intéresse
+	Elle permet de mettre en place des modèles visant quatre objectifs:
+		❏ Visualiser un système tel qu'il est ou tel que nous voudrions qu'il soit.
+		❏ Préciser la structure ou le comportement d'un système.
+		❏ Fournir un canevas qui guide la construction d’un système.
+		❏ Documenter les décisions prises.
+
+Modélisation exemples...
+		❏ Modélisation fonctionnelle
+		❏ Modélisation Orientée Objet
+
+Modélisation fonctionnelle
+Elle est centrée sur l'identification :
+		❏ des données(ie attributs ou variables) du système;
+		❏ des fonctions(ie services ou comportements) du système;
+		❏ fournir un canevas qui guide la construction d'un système;
+		❏ et de l'interdépendance des fonctions
+
+Les différents modèles d’un cycle de vie
+1. Modèles linéaires
+* Cascade
+* Modèle en V
+2. Modèles non linéaires
+* Prototypage
+* Modèles incrémentaux
+* ...
+MERISE
+signifie :Méthode d’Etude et de Réalisation Informatique pour les Systèmes
+d’Entreprise
+❏ But: Conception de Système d'Information (SI) par la modélisation pour projets
+de toutes tailles
+❏ Libre de droits
+❏ Vise les SI construits autour de BD relationnelles.
+			NIVEAUX D’ABSTRACTION
+►Niveau Conceptuel: Ce qu’il faut faire Quoi ?
+►Niveau Organisationnel: La manière de faire Pour les traitements
+►Niveau Logique: Choix des moyens et ressources Pour les données
+►Niveau Physique :Les moyens de le faire Comment 
+
+			MCD
+c'est un modele visuel permettant de schematiser les dependances fonctionnel	
+Une association est un lien sémantique entre deux ou plusieurs entités.
+La dimension d'une association est le nombre d'entités qu'elle relie.
+Elle indique combien de fois qu'une entité peut intervenir dans l’ association	
+			Base de données
+Définition ; une base de données est un ensemble structuré de données (1)
+enregistrées sur des supports accessibles par l’ordinateur (2) pour satisfaire
+simultanément plusieurs utilisateurs (3) de manière sélective (4) en un temps
+opportun (5).
+SGBD
+Définition: un système de gestion de bases de données (SGBD) est un logiciel de
+haut niveau qui permet de manipuler les informations stockées dans une base de
+données.
+Elle est basée sur trois niveaux
+● Niveau interne: concerne le stockage physique des données sur les mémoires
+de masse. Le SGBD prend en charge ce niveau
+● Niveau conceptuel: concerne la définition logique des données.
+L’administrateur se charge de définir le schéma conceptuel de la BD au moyen
+du LDD.
+● Niveau externe: concerne les utilisateurs finaux et les développeurs. Ces
+derniers utilisent une vue (ou modèle mental) de la BD et de son contenu.
+
+Il y a trois type d’utilisateurs pour une BD:
+○ l’administrateur de la BD
+○ l’utilisateur final
+○ le programmeur (développeur d’applications)
+
+
+
+			  MODÈLE CONCEPTUEL DE
+				COMMINUCATION (MCC)
+Introduction
+Ce diagramme donne une vue d’ensemble (ou cartographie) de la circulation des
+informations (les flux) entre des acteurs internes ou externes qui participent à un
+domaine d’étude.
+● Définition
+Autrement appelé le modèle conceptuel de flux ou diagramme de flux est le
+résultat de l'expression des besoins des utilisateurs,il représente, au niveau
+conceptuel, les échanges d’information entre les acteurs
+Objectif
+Le MCC est un modèle ayant pour objectif la représentation graphique de la
+production, la circulation et la destination des messages (informations) au sein du
+S.I du domaine d’étude.
+Le dictionnaire des données est un document qui permet de recenser, de classer et de
+trier toutes les informations (les données) collectées lors des entretiens ou de l’étude
+des documents.
+Avantages
+● le MCC permet de situer précisément les limites du domaine d'étude ;
+● Le MCC fournit avec précision et exhaustivité tous les événements pouvant
+déclencher une action sur le système.
+Acteurs
+Un Acteur c’est une personne ou un groupe de personnes qui s ʼéchangent des
+informations (documents et messages) qui accomplissent des actions sur ces
+informations
+Un acteur « fait quelque chose », il est actif
+
+Flux d’information
+● Lot d'informations transmis entre deux acteurs du SI étudié.
+● Un Flux est donc un transfert d’informations entre composants du système. Le
+composant peut être un domaine ou un acteur externe .
+
+		DÉPENDANCES FONCTIONNELLES
+Introduction
+Le rôle des dépendances fonctionnelles est de nous aider à comprendre les liens
+existants entre chaque donnée.
+
+Une donnée B dépend fonctionnellement (ou est en dépendance fonctionnelle)
+d’une donnée A lorsque la connaissance de la valeur de la donnée A nous permet
+la connaissance d’une et au maximum une seule valeur de la donnée B
+
+-Une dépendance fonctionnelle qui comporte plusieurs attributs est dite composée.
+-Une dépendance fonctionnelle A → B est élémentaire s’il n’existe pas une donnée C,
+sous­ ensemble de A, décrivant une dépendance fonctionnelle de type C → B.
+-On dit que la dépendance fonctionnelle A → B est directe s’il n’existe aucun attribut C
+tel que l’on puisse avoir A → C et C → B.
+En d’autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut
+pas être obtenue par transitivité.
+
+Les dépendances fonctionnelles ne concernent que les données non déduites
+
+Règle de normalisation: Objectifs
+Son objectif est d’éviter les anomalies dans les bases de données relationnelles :
+● Problèmes de mise à jour.
+● Suppression des redondances d’informations.
+● Simplification de certaines contraintes d’intégrité.
+
+		Une relation est en première forme normale si :
+● Tous les attributs ne contiennent qu’une seule valeur atomique (non divisible).
+● s’il possède au moins une propriété qui lui sert de discriminant
+		Une relation est en deuxième forme normale si :
+● Elle est en première forme normale.
+● Si tous les attributs non ­clés ne dépendent pas d’une partie de la clé primaire.
+Autrement dit, toute propriété de la relation doit dépendre intégralement de toute la clé.
+		Une relation est en troisième forme normale si :
+● Elle est en deuxième forme normale.
+● Si toutes les dépendances fonctionnelles par rapport à la clé sont directes (s’il n’y
+a pas de DF transitives entre les attributs non clé).
+Autrement dit, tous les attributs n’appartenant pas à la clé ne dépendent pas d’un attribut non­ clé.
+
+
+resumer 
+mld:le modèle relationnel permet d'organiser les données en "relation" qui se transfomeront en "table" dans la base de donnee.
+MCD:permet une représentation graphique de l'organisation optimisés des données qui sont regroupées en entités,et mettant en évidence des relations entre ces entités.
+mct:L'arrivée d'un ou plusieurs évènements va déclencher une opération qui va
+produire un résultat. Il sert à décrire en détail le déroulement des activités listées
+dans le DCF : ce qui les déclenchent (évènement), ce qui se passe une fois
+déclenchée (opération), et quels sont les résultats produits
+mcc:est le résultat de l'expression des besoins des utilisateurs,il représente, au niveau
+conceptuel, les échanges d’information entre les acteurs
+entite:element abstrait ou concret du monde reel pourvu d'une existence propre et presentant de l'interet pour le sys etudi
+
+1FN : une relation est en première forme normale ssi tout attribut a une valeur atomique (vrai par définition du modèle relationnel)
+2FN : une relation est en deuxième forme normale ssi elle est en 1FN et si tous les attributs non clés sont pleinement dépendants 
+      des clés (toutes les dépendance entre une clé et un attribut non clé sont élémentaires)
+3FN : une relation est en troisième forme normale ssi elle est en 2FN et si tous les attributs non clés sont directement et pleinement dépendants des clés (si tout attribut non clé ne dépend pas d'un autre attribut non clé)
+
+
+
+								ALGEBRE RELATIONNEL
+
+L’algèbre relationnelle est un ensemble d’opérateurs qui prennent en entrée des relations et qui produisent en sortie
+des relations dont l’objectif est de localiser des données dans la base qui répondent à un certain critère
+
+L’algèbre relationnelle possède huit opérateurs catégorisées en deux groupes:
+● Les opérateurs ensemblistes(UNION, INTERSECTION,
+DIFFÉRENCE, PRODUIT CARTÉSIEN)
+● Les opérateurs relationnels(SÉLECTION, PROJECTION, JOINTURE, DIVISION)
+
+UNION (U)
+● AR: R1 U R2 ou UNION (R1 , R2)
+● SQL: SELECT * FROM R1 UNION SELECT * FROM R2
+
+INTERSECTION(n)
+● AR: R1 n R2 ou INTERSECT (R1 , R2)
+● SQL: SELECT * FROM R1 INTERSECT SELECT * FROM R2
+EN MYSQL on a:
+SELECT * FROM R1 INNER JOIN R2 USING(numero,nom,prenom);
+
+Différence (-)
+● AR: R1 - R2 ou EXCEPT (R1 , R2)
+● SELECT * FROM R1 EXCEPT SELECT * FROM R2 (postgres)
+● SELECT * FROM R1 MINUS SELECT * FROM R2 (oracle)
+Différence (-)
+● MYSQL: SELECT * FROM R1 LEFT JOIN R2 USING
+(numero,nom,prenom) WHERE R2.numero IS NULL;
+
+Produit cartésien (x)
+● AR: Client x Commande
+● SQL: SELECT * FROM R1 CROSS JOIN R2 oubien
+● SELECT * FROM R1,R2
+
+SÉLECTION ou RESTRICTION( σ )une restriction, c'est juste un "filtrage" de lignes selon une condition !
+● AR: σ (nom=’thioune’)(client)
+● SQL: SELECT * FROM CLIENT WHERE nom=’THIOUNE’
+
+projection (π)c'est sélectionner certaines colonnes d'une table en supprimant les autres.
+● AR: π(nom,prenom)(client)
+● SQL: SELECT nom,prenom FROM CLIENT

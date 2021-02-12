@@ -1,0 +1,197 @@
+les 4 v:volume,variete,velocite,valeur
+
+ACID = Atomicité (transaction), Cohérence (intégrité), Isolation (// des appels), Durabilité(sauvegarde).
+Les technologies Objet de développement d'applications sont désormais bien présentes dans les entreprises. Les langages tels
+ que C++, Java, Python,… sont largement utilisés. Par contre, le stockage des informations est le plus souvent réalisé par
+  l'utilisation de Systèmes de Gestion de Bases de Données Relationnels. Le développeur se trouve de ce fait souvent confronté
+   au problème du mapping Objet/Relationnel qui non seulement coûte cher en développement mais ralenti aussi l'exécution des
+    programmes.
+CAP:
+énonce le théorème CAP, une abréviation de trois propriétés :
+• consistency (cohérence) : tous les nœuds sont à jour sur les données au même moment ;
+• availability (disponibilité) : la perte d’un nœud n’empêche pas le système de fonctionner
+et de servir l’intégralité des données ;
+• partition tolerance (résistance au morcellement) : chaque nœud doit pouvoir fonctionner
+de manière autonome.( On entend par là qu’un système partitionné doit
+pouvoir survivre aux difficultés du réseau.)
+Les bases de données partagées ne peuvent satisfaire que deux de ces critères au plus
+BASE
+Du coup, les propriétés BASE ont été proposées pour caractériser les bases NoSQL :
+
+Basically Available : quelle que soit la charge de la base de données (données/requêtes), le système garantie un taux de
+ disponibilité de la donnée
+
+Soft-state : La base peut changer lors des mises à jour ou lors d'ajout/suppression de serveurs. La base NoSQL n'a pas à être
+ cohérente à tout instant
+
+Eventually consistent : À terme, la base atteindra un état cohérent
+
+//-----------CASSANDRA
+-COLONE
+Une colonne est la plus petite unité du modèle de données de Cassandra. C'est un triplet contenant un nom, une valeur et un timestamp.
+La valeur n'est pas obligatoire. Son omission peut conduire à une amélioration de performance. Le nom de la colonne peut
+être considéré comme une valeur.
+Une colonne a un type appelé comparator. Une valeur a également un type appelé validator
+-LIGNE
+Une ligne est composée d'un ensemble de colonnes. Elle est identifiée par une clé. Une clé peut contenir jusqu'à 64 Ko de données et peut contenir jusqu'à deux milliards de colonnes. Il est possible d'utiliser des colonnes comme clé primaire.
+-Famille de colonnes (Column Family)▲
+Une famille de colonnes ou column family en anglais est un regroupement logique de lignes. Pour faire le parallèle avec le monde des bases de données relationnelles, une famille de colonnes est en quelque sorte une table.
+-Keyspace
+Finalement le Keyspace est un regroupement de famille de colonnes. Il s'agit d'une sorte de schéma si on compare au monde des bases de données relationnelles.
+Les paramètres rentrant en jeu sont le Replication Factor (RF) et le Consistency Level (CL).
+Ces paramètres permettent de gérer la disponibilité (A) et la résistance au morcellement (P) de Cassandra.
+-cluster
+Un cluster peut contenir plusieurs Keyspaces.
+
+Quand utiliser Cassandra ?▲
+Vous utiliserez Apache Cassandra à chaque fois que vous aurez affaire à une problématique de charge, de volume et de besoins de très haute disponibilité.
+
+
+OPERATION SUR LES KEYSPACE
+ nous créons un KEYSPACE appelé  tdsi via la commande CREATE KEYSPACE  en utilisant la stratégie de placement 'SimpleStrategy' 
+ et un facteur de réplication à 1. 
+ "CREATE KEYSPACE tdsi WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };"
+
+ L'interrogation permet d'obtenir la liste des KEYSPACE disponibles d'une base de données Cassandra.
+desc Keyspaces
+
+ Suppression
+ DROP KEYSPACE tdsi;
+
+ OPERATION SUR LES FAMILLE DE COLONNE
+creer une family column
+
+ "CREATE TABLE Persons (
+  familyName varchar, 
+  firstName varchar, 
+  age int, 
+  address varchar,
+  PRIMARY KEY(familyName));"
+  SELECT column_name FROM schema_columns WHERE keyspace_name = 'tdsi' and columnfamily_name = 'etudiant';
+
+  ALTER TABLE Persons ADD phone VARCHAR;
+
+  // SUPPRESSION
+  DROP COLUMNFAMILY Persons;
+
+  OPERATION SUR LES lignes
+
+INSERT INTO Persons (familyName, firstName, age, address,phone) VALUES ('BARON', 'Mickael', 36, 'Poitiers', '+33549498073');
+
+interrogation
+SELECT * FROM tdsi.Persons;
+modification
+UPDATE tdsi.persons SET firstname = 'Keulkeul' WHERE familyname = 'BARON';
+suppression
+DELETE FROM Persons WHERE familyname='BARON';
+
+V. Outils de supervision
+nodetool
+Nodetool est un outil très important pour pouvoir gérer et avoir des informations sur les nœuds du cluster. Cela facilite la gestion des nœuds. Voici les actions de base de nodetool :
+
+status : connaître l'état du nœud
+start : lancer le nœud
+stop : arrêter le nœud
+getendpoints : connaître les nœuds où une donnée va être répliquée
+gossipinfo : connaître tous les nœuds liés à la vérification de panne du nœud
+
+V-A-1. Afficher des informations
+L'option status donne des informations sur les nœuds d'un cluster (état, la capacité des données…).
+nodetool -h localhost -p 7199 status
+L'option cfstats donne des informations sur les familles de colonnes.
+nodetool -h localhost -p 7199 cfstats
+Finalement info donne des informations sur un nœud d'un cluster.
+nodetool -h localhost -p 7199 info
+
+
+
+
+
+
+
+
+DOCUMENTATION(lien : https://stph.scenari-community.org/contribs/nos/Cassandra3/co/3_3-Performances.html)
+UN cluster
+En systèmes et réseaux, un cluster est une grappe de serveurs (ou « ferme de calcul ») constituée de deux serveurs au minimum
+ (appelés aussi nœuds) et partageant la plupart du temps une ou plusieurs baies de disques.
+Principe fondamental d'un cluster
+Fondamental
+Il n'y a pas de nœud maître dans un cluster, ils sont tous au même niveau. De ce fait, lorsque qu'un client veut lire
+ ou écrire une donnée, il lui suffit de se connecter à l'un des nœuds du cluster, si le nœud en question ne contient 
+ pas la donnée, alors il la demandera au nœud qui la contient. Ce mécanisme est transparent pour le client.
+Le cluster fonctionne de la même manière qu'une table de hachage. Lorsque l'utilisateur décide d'ajouter une ligne à une table,
+ alors une fonction de hachage va être passée sur la Primary Key de la ligne. Cette fonction va renvoyer un numéro, 
+ qui va déterminer le nœud où la ligne va être ajoutée. Ensuite, si le Replication Factor est égal à n, 
+ alors la ligne va être répliquée aux n nœuds selon la stratégie de copie adoptée.
+ UTILISATION 
+ Il est pertinent d'utiliser Cassandra pour un système :
+
+Décentralisé : La base doit être distribuée. Les données ne seront pas centralisées en un seul et même serveur. Il y aura donc 
+un cluster, ce cluster permettra de gérer la scalabilité du système. En effet, le volume de données contenu au sein du cluster 
+peut être amené à évoluer rapidement et il est important que l'architecture mise en place puisse s'adapter à ses évolutions.
+
+Tolérant aux pannes : L'accès aux données doit être garanti même en cas de pannes. Cassandra permet de paramétrer finement cette 
+tolérance aux pannes.
+
+Hautement Disponible : La base doit être accessible par n'importe quel utilisateur à n'importe quel moment (même en cas de pics
+ d'utilisation du système).
+
+Attention
+
+Une technologie répond à un besoin et non l'inverse ! Cassandra ne doit pas être utilisée si l'architecture souhaitée ne répond pas aux critères ci-dessus.
+Conseil
+Cassandra est particulièrement adaptée aux bases devant gérer une forte demande côté clients ainsi qu'une haute fréquence de lectures/écritures.
+
+Exemple
+Quelques exemples d'entreprises utilisant Cassandra (d'après le site d'Apache Cassandra) :
+Apple, avec plus de 75 000 noeuds, et 10 PB de données (10 000 000 Giga).
+Netflix, avec 2 500 noeuds, 420 TB de données, et 1000 milliards de requêtes par jour.
+Ebay, 100 noeuds, 250 TB de données.
+
+Le Replication Factor correspond au nombre de copies d'une donnée au sein des nœuds du cluster.
+
+Syntaxe
+KEYSPACE
+CREATE ( KEYSPACE | SCHEMA )<keyspace_name> WITH REPLICATION = { 'class' : <strategy>, 'replication_factor' : <RF> };
+
+La stratégie de copie (replication)
+Il existe 2 types de stratégies :
+
+SimpleStrategy : à utiliser uniquement lorsque le cluster est composé d'un unique data-center et une seule rack.
+ La première copie est placée dans le noeud déterminé à partir de la clé de partition, les suivants sont placés 
+ sur les noeuds voisins dans le sens des aiguilles d'une montre sans se soucier de la topologie (localisation du 
+ 	data-center ou de la rack).
+
+NetworkTopologyStrategy : à utiliser lorsque le cluster est déployé sur plusieurs data-centers.
+ Cette stratégie permet de spécifier le nombre de copies voulu dans chaque data-center, elle permet également de 
+ placer les copies sur des racks distincts car les noeuds d'une même rack rencontre souvent simultanément des problèmes 
+ d'alimentation, de refroidissement ou de réseau.
+
+Pour la suite, nous nous intéresserons uniquement à la SimpleStrategy.
+
+Remarque
+Le choix du RF
+Le Replication Factor doit forcément être inférieur ou égal au nombre de nœuds du cluste
+
+Il existe plusieurs valeurs possibles pour le Consistency Level, dont les plus importantes :
+
+ONE : un seul nœud est consulté / l'écriture est validée après écriture sur un seul nœud.
+QUORUM : (RF/2) +1 nœuds sont consultés / l'écriture est validée après écriture sur (RF/2) +1 nœuds.
+ALL : RF nœuds sont consultés / l'écriture est validée après écriture sur RF nœuds
+
+bonjour monsieur Adjevoua, desolée pour le dérangement 
+je m'appelle Saliou Seck en L2TDSI
+Je voulais juste vous signaler quelque chose a propos des notes vous nous aviez dit que 
+dans notre classe il y avait  un certains nombres d'etudiants qui ont 
+obtenu 20 a l'examen et a l'examen j'avais fait tous les questions sans exception
+et tout marchait bien sans erreur donc je me suis dit que forcément je faisait
+partie de ce qui ont obtenue 20 mais c'etait pas le cas j'ai obtenue 13 donc je me 
+suis dit est ce  l'administration n'a pas fait d'erreur en rapportant les notes.vu que dans 
+notre classe il y a eu un seul 20 alors qu'il devrait y avoir plusieurs.
+Merci et encore désolé pour le dérangement.
+
+
+les type d'attaques
+deni de service 
+usurpation
+aé

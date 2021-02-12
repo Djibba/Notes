@@ -1,0 +1,1 @@
+un wiki est un gestionnaire de contenu orienté rédaction collaborative et de partage d'informations structurées

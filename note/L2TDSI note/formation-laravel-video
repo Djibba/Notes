@@ -1,0 +1,76 @@
+composer create-project --prefer-dist laravel/laravel nom_projet //pour creer notre projet
+php artisan serve --port 2000 --host 0.0.0.0(pour le rendre accecibl sur notre reseaur)// pour demarrer le serveur 
+
+Aprés avoir installer laravel installer on cré notre projet avec la ligne suivant
+"laravel new nom_project"
+//generer une clé qui sera utiliser pour tout ce qui est l'encryption
+php artisan key:generate
+
+//mettre la taille par default pour les String
+-----------------------------------
+use Illuminate\Support\Facades\Schema;
+
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+-----------------------------------------
+
+
+// passer des donner a une vue 
+ return view('menu.contact')->with("contact",$contact);
+ Route::get('/contact', function () {
+    $donne=['nom'=>'seck',
+            'prenom'=>'saliou'];
+    $contact="parcelle";
+    return view('menu.contact',$donne);
+});
+
+Route::get('/contact', function () {
+   $retour=view('menu.contact');
+   $retour->nom="syne";
+   $retour->prenom="moussa";
+   return $retour;
+    
+});
+
+Route::get('/contact', function () {
+    $prenom='mor';
+    $nom='seck';
+    return view('menu.contact',compact('prenom','nom'));
+    
+});
+
+//blade
+commentaire {{-- --}}
+@verbatim//ne sera pas  interprete par blade 
+{{"je ne serai pas interpréte donc je m'affiche avec les acolate et tout"}}
+@endverbatim
+
+par defaut blade echap les chaine contenant du code html pour empecher cela on met {!! !!}
+faire un echo == {{" "}}
+@if(condition)//@unless
+{{'instruction'}}
+@elsif
+{{"message"}}
+@endif
+
+@foreach(cle as value)//@forelse
+	{{"texte"}}       //@empty
+@endforeach           //@endforelse
+
+//LES LAYOUT
+@include('chemin') //pour inclure une page
+//a definir dans la page source :
+@yield('content')
+    //a definir dans la page qui appelle le layout
+@extends('layout.master')//('layout.master',['title'=>'home']) //ainsi on aura acces a la variable 
+@section('content')                                            //title dans les clas parent(extend+include)
+    <h1>mon titre</h1>                   //class parent prendre en compte les classe qui n'ont pas declar title
+@endsection  //peut etre remplacer par stop               // {{$title or ''}} <=>{{$title ?? ''}} 
+supposons qu'on veut charger un script sur certains page mais pas tous alors il faudra utiliser @section ou mieux
+@stack  @push @andpush
+
+//injection de service
+in creer le service dans le dossier App ([dans un sous dossier])
+puis on pourra l'injecter dans notre view : "@inject('date','App/Utilities/Date');" ainsi notre service sera disponible via notre variable date .cette dernière est utiliser a chaque fois qu'on veille une methode de App/Utilities/Date

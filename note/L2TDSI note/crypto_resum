@@ -1,0 +1,365 @@
+Cette nouvelle cryptographie est dite moderne parce que entre autres :
+ 
+ 	-- toutes ses branches ont connues une modélisation mathématique plus cohérente ;
+ 	-- elle a produit des outils (algorithmes, protocoles,...) qui restent encore robustes malgrés 
+ 	le développement des techniques de cryp
+ 	-- elle prend en charge presque totalement tous les besoins de sécurité dans un schéma de communication ;
+ 	-- son application dans le monde civil a permi le développement de nouveaux métiers ou
+
+Cryptographie : c’est une discipline incluant les principes, les moyens et des méthodes de
+transformation des données, dans le but :
+– de masquer leur contenu (Confidentialité),
+– d’empêcher leur modification (Intégrité),
+– ou leur utilisation illégale (Authentification et Non-Répudiation).
+	 ■ Cryptanalyse : c’est l’étude des faiblesses des outils de sécurité (algorithmes) produits par
+la cryptographie dans le but de les corriger ou nuire au système de communication .
+	 ■ Chiffrement : Le chiffrement consiste à transformer une donnée (texte, message, ...) afin de
+la rendre incompréhensible par une personne autre que celui qui a créé le message et celui qui en est le destinataire.
+	 ■ Déchiffrement : C’est la fonction permettant de retrouver le texte clair à partir du texte chiffré.
+	 ■ Texte chiffré : Appelé également cryptogramme, le texte chiffré est le résultat de l’application
+	  d’un chiffrement à un texte clair.
+	 ■ Clé : Il s’agit du paramètre impliqué et autorisant des opérations de chiffrement et/ou déchiffrement.
+ 		Dans le cas d’un algorithme symétrique, la clef est identique lors des deux opérations.
+ 		Dans le cas d’algorithmes asymétriques, elle diffère pour les deux opérations.
+	 ■ Cryptosystème : Il est défini comme l’ensemble des clés possibles (espace de clés), 
+	 des textes clairs et chiffrés possibles associés à un algorithme donné
+
+   ☼ shema symetrique et asymetrique a dessiner
+   ☼ Un shéma de communication 
+
+
+Services de sécurité
+	► Confidentialité : Propriété qui assure que l’information n’est pas rendue disponible ou révélée à des personnes,
+	 entités ou processus non autorisés.
+	► Intégrité : Propriété qui assure que des données n’ont pas été modifiées ou détruites de façon non autorisée lors
+	 de leur traitement, stockage et/ou transmission.
+	► Non répudiation / Signature : Fonction qui permet de garantir qu’aucun des partenaires d’une transaction
+	 ne pourra nier d’y avoir participé.
+	► Authentification : Fonction permettant de prouver l’identité des partenaires (hommes,machines, réseaux,...)
+	 d’une communication ou l’origine des données lors d’un échange ou la validité d’un object cryptographique
+	  ( clé, carte à puce, certificat/signature,...).
+
+En général, plusieurs types d’authentifications sont couplés pour une sécurité avec
+plusieurs niveaux (barrières) : on l’appelle
+l’authentification forte ou multifacteurs.
+
+Il y’a trois facteurs fondamentaux :
+ 	♀ Ce que l’on sait ( mot de passe, phrase secrète, ...)
+	♀ Ce que l’on a (clé, token usb, carte magnétique, carte à puce,...)
+	♀ Ce que l’on est (Biométrie : empreintes digitales, voix, scanner rétinien, ADN/Chromosomes,...)
+	♀ Ce que l’on sait faire (calculer une opération, lire le contenu d’une image, ...)
+
+			//Primitives de la cryptographie
+ Une primitive cryptographique est un algorithme cryptographique de bas niveau, bien documenté, et sur la base duquel est bâti tout système de sécurité informatique. 
+ Pour réaliser les fonctions et objectifs de sécurité , la cryptographie utilise plusieurs outils de bases appelés primitives de cryptographie.
+ Mais aussi des compositions plus complexes parfois que sont les protocoles de cryptographie.
+ Parmi ces primitives ou algorithmes, on peut citer :
+	◘ Algorithmes (pour le chiffrement) :
+			• à clé secrète : DES, AES, RC4, etc.
+			• à clé publique : RSA, Mc-Eliece, El Gamal etc.
+			• chiffrement basé sur les réseaux arithmétiques : NTRU-Encrypt, ect.
+	◘ Fonctions de hachage :(pour garantir l’intégrité par la création d’empreinte) MD5,SHA-1, SHA-2, SHA-3 etc.
+	◘ Schémas de signatures numériques :(pour la non répudiation) : DSA, EC-DSA, PSSRSA etc.
+	◘ Signature basée sur les réseaux arithmétiques : NTRU-Sign, ect.
+Parmi ces protocoles, on peut citer :une serie fini de tache concu pour accomplir une tache
+
+ 	♂ Diffie-Hellman (pour l’échange de clés).
+ 	♂ Fiat-Shamir (pour l’identification).
+ 	♂ Needham-Schrôder (pour l’authentification mutuelle).
+
+								Application
+	*internet
+	*Signature electronique:verifiable,authentique
+	*Vote electronique
+	*paiement par carte bancaire
+	*decodeur
+	*porte monnaie electronique
+	*base de donne securisee
+
+								 Notion de cryptanalyse
+Attaquant : Entité [nommée Charlie] suceptible d’agir sur un schéma de communication dans le but de nuire
+							Types d’attaques
+Il y’a deux classes d’attaques :
+	◙ Attaques passives : l’attaquant écoute seulement. Donc, c’est une attaque qui cible la confidentialité.
+	◙ Attaques actives : l’attaquant agit sur le système de commnucation pour:
+		détourner et modifier des données ou récupérer des informations,
+ 		usurper l’identitité de l’un des partenaires de la communication.
+
+ 								Sécurité d’un chiffrement
+ Un système de chiffrement est dit sûr si la probabilité d’obtenir une information sur le texte clair ou la clé de
+  déchiffrement à partir du chiffré est presque nulle.
+	 -> Celà veut dire que : toute information qu’on peut tirer du texte clair sera si faible qu’elle ne permettra 
+	 pas de violer sa confidentialité partielle ou complète ;
+	 -> ou que toute information qu’on peut extraire de la clé sera si faible qu’elle ne permettra pas de la reconstituée
+	  substantiellement
+
+
+	 CHAPITRE 2 LE CHIFFREMENT SYMETRIQUE
+
+la cryptographie symetrique ne garantit que la confidentialite
+3- service confidentialite
+4- Primitive: chiffrement
+	-chiffrement par blocs
+		DES-AES-IDEA-3DES
+	-CHIFFREMENT PAR FLUX (flots)
+		RC4 RC5 A5
+5- Avantages
+	►►►Rapidité des operations de chiffrement/dechiffre car la taille des cles est assez petit et calcul elementaire 
+	►►►possibilité de chiffrer des donneés de grande taille
+6- Inconveniant
+	►►►problème de partage et de stockage des clés.
+	►►►probleme de confidentialité de la clé secrete
+	►►►problème de gestion de clé si n personne se partage des clés secretes 2 à 2 alors il y a N·(N − 1)/2 paires de clés. cles a gerer
+	Conception des chiffrements par blocs(VOIR COUR)
+ Concevoir un chiffrement qui soit rapide ou sûr est facile.
+ La difficulté est d’en concevoir un qui soit rapide et sûr !
+1. Combiner des opérations simples (XOR (⊕), addition modulo 2N (), 
+autres opérations logiques, rotations de bits, permutations d’octets ou de mots, S-box = boîtes de substitution)
+pour obtenir quelque chose de compliqué.
+2. Appliquer plusieurs fois successivement la même fonction simple (fonction de tour)
+en utilisant des sous-clés dérivées de la clé K. Chacune de ces applications s’appelle un
+tour.
+193. Rechercher les propriétés suivantes sur la fonction de tour (Shannon) :
+– diffusion = propagation rapide de l’information des bits du clair ou de la clé vers les bits
+du chiffré ;
+– confusion = absence de relations simples entre les bits du clair ou de la clé et du chiffré.
+
+MODE OPERATOIRES (voir cour)	
+
+	Modes opératoires : ECB
+– Problème : on veut chiffrer un message de longueur > N, arbitrairement grande.
+– Idée la plus évidente : "electronic codebook mode" (ECB) : découper le message en
+blocs de longueur N, chiffrer chacun indépendamment.
+– Avantages : simple, parallélisable, possibilité d’accès aléatoire aux données déchiffrées, pas
+de propagation des erreurs.
+– Inconvénients : les motifs répétés du clair sont apparents ;
+pas de garantie d’intégrité : un attaquant pourrait facilement modifier l’ordre des blocs,
+ou en répéter.
+
+	Modes opératoires : CBC
+"Cipher block chaining mode" (CBC) : faire le XOR de chaque bloc de clair avec le bloc
+chiffré précédent : yi = EK(xi) ⊕ yi−1.
+IV (pour "initialization vector") est une valeur qui n’est pas secrète dont le rôle est d’éviter
+que le chiffrement de deux clairs identiques soit identique.
+– CBC est le mode le plus utilisé (mais de moins en moins).
+ Propriétés : les motifs du clair n’apparaissent pas dans le chiffré, une erreur de transmission
+du chiffré affecte deux blocs du message déchiffré.
+– Pas de garantie d’intégrité, mais un attaquant peut plus difficilement en tirer avantage.
+– Le chiffrement ne peut se faire que séquentiellement, mais le déchiffrement peut se faire par
+accès aléatoire.
+
+	Modes opératoires : CFB
+"Cipher feedback mode" (CFB) : on fait un XOR de chaque bloc d’entrée avec le chiffré de
+la sortie précédente : yi = xi ⊕ EK(yi − 1)
+Peu de différence avec CBC si utilisé sur des blocs entiers.
+Remarque : Le déchiffrement se fait simplement avec la fonction EK.
+
+	Modes opératoires : compteur (CRT)
+"Counter mode" (CTR) : on fait un XOR de chaque bloc d’entrée avec une valeur qui est le
+chiffré d’un simple compteur : yi = xi ⊕ zi où zi = EK(i).
+Autrement dit, les EK(i) sont utilisés comme un masque jetable (one-time pad).
+Le déchiffrement se fait avec la fonction EK.
+211. Avantages : simple, parallélisable, possibilité d’accès aléatoire aux données déchiffrées, pas
+de propagation des erreurs.
+2. Inconvénients : il faut prendre garde à ne pas réutiliser la clé : chaque message doit être
+chiffré avec une clé différente, ou bien (plus courant) les bits supérieurs du compteur doivent
+être initialisés avec un numéro unique (=nonce) pour chaque message, dont le rôle est semblable
+au vecteur d’initialisation
+
+							Chiffrement par flux
+Chiffrement souvent en deux étapes
+1. cadencement de clé (= "key schedule") : générer les sous-clés (ou clés de tour) K1; · · ·; Kr à
+partir de la clé K ;
+2. chiffrement proprement dit, en r étapes (r = nombre de tours), typiquement, x0 = x et
+xi+1 = F(Ki+1; xi), donnant la sortie y = xr après r étapes, où F est la fonction de tour (doit
+être inversible).
+Réseaux de Feistel
+Méthode simple pour éviter d’avoir à concevoir une fonction de tour automatiquement inversible.
+
+						FONCTION DE HACHAGE
+	** Une fonction de hachage en cryptographie est une fonction publique à sens
+unique sans trappe (donc facile à calculer et difficile à inverser pour tout le monde)
+h : P --> H, qui transforme un message de longueur quelconque en un message de
+longueur fixe.
+    ** De plus la probabilité, pour qu’il y ait une collusion doit être faible [ c’est-à-dire
+il doit être difficle de trouver x != x' tels que h(x) = h(x')] ;
+I On les utilise en cryptographie pour :
+♀ fournir un condensé de taille fixe ;
+♀ représenter précisément les données : la détection des changements dans le message est simplifiée.
+
+I L’intérêt est que cela permet l’usage de la cryptographie asymétrique sans engendrer trop de
+ralentissement, mais également d’assurer la provenance d’un fichier ainsi que son intégrité.
+I Dans la majorité des cas, elles seront utilisées pour créer une signature numérique.
+I Enfin, la qualité principale de ces fonctions est que les algorithmes sont publics.
+ La probabilité d’avoir deux messages avec le même haché doit être extrêmement faible.
+I Le haché ne contient pas assez d’informations en lui-même pour permettre la reconstitution
+du texte original.
+I L’objectif est d’être représentatif d’une donnée particulière et bien définie (en l’occurrence le
+message).
+ 									Propriétés
+Les fonctions de hachage possèdent de nombreuses propriétés :
+	♂ Elles peuvent s’appliquer à n’importe quelle longueur de message M.
+	♂ Elles produisent un résultat de longueur constante.
+	♂ Il doit être facile de calculer h = H(M) pour n’importe quel message M.
+	♂ Pour un h donné, il est impossible de trouver x tel que H(x) = h. On parle de propriété à
+sens unique.
+	♂ Pour un x donné, il est impossible de trouver y tel que H(y) = H(x) ==> résistance faible
+de collision.
+	♂ Il est impossible de trouver x; y tels que H(y) = H(x) ==> résistance forte de collision.
+Les fonctions de hachages comptent deux familles
+ celles utilisant des clés :
+II MAC (Message Authencation Code)
+MAC 	garantit l'authenticite(authentification +integrite)
+			les autre l'integrite
+
+ celles n’utilisant pas de clés
+– MD (Message Digest) :
+II MD4, Rivest, 1990 ;
+II MD5, Rivest, 1992, empreinte sur 128 bits, RFC 1321
+– SHA (Secure Hash Algorithm) :
+SHA-0  SHA-1  SHA-2  SHA-3
+– SHS (Secure Hash Standard) :SHA-1 SHA-224 SHA-512 SHA-256
+
+				LA Cryptographie A CLE publique
+chiffrement asymetrique(il ya uniquement des chiffrement par blocs)
+On peut classer l’utilisation des algorithmes à clé publique en 3 catégories :
+1- Chiffrement/déchiffrement : cela fournit le secret.
+2- Signatures numériques : cela fournit l’authentification.
+3- Échange de clés (ou des clefs de session).
+		1-Principe utilisation de deux cles 
+	-1cle publique pour chiffrer ou verifier une signature(authentification non repudiation)
+	-1cle prive pour dechiffrer ou signer
+	on parle de cryptographie a cle publique
+		CERTIFICAT
+Un certificat est un document électronique utilisé pour identifier un individu, un serveur, 
+une entreprise ou toute autre entité et pour associer une clef publique à cette identité
+il permet de lier une cle publique a un 
+		3-service garantit :
+	►Confidentialite
+	►Authentification
+	►Non-repudiation
+		4-Primitive(Algorithme) 
+	-chiffrement(RSA,El Gamal,Rabin)
+	-Signature numerique(RSA,El Gamal,DSA)
+		5-Avantages
+	►probleme de partage des cles resolu
+	►plusieurs service garantit car chiffremnt et signature en meme temps
+	►Nombre de clés a gerer moins important que le symetrique
+		6-INconvenient
+		► Confidentialité de la clé privée (gardée sur un ordinateur ou une clé USB appelée
+Token) ;
+		► Intégrité de la clé publique (publiée dans ce qu’on appel un annuaire) ;
+
+		►operation de chiffrement  et dechiffrement tres lentes car la taille des clés est 
+		trés grandes et les operation utilisée sont couteuse en memoire CPU
+		►systeme non destiné au chiffrement de texte de taille importante
+On peut classer l’utilisation des algorithmes à clé publique en 3 catégories :
+		I Chiffrement/déchiffrement : cela fournit le secret.
+		I Signatures numériques : cela fournit l’authentification.
+		I Échange de clés (ou des clefs de session).
+La sécurité de tels systèmes repose sur des problèmes calculatoires :
+		I RSA : factorisation de grands entiers.
+		I ElGamal : logarithme discret.
+		I Merkle-Hellman : problème du sac à dos (knapsacks).
+		I NTRU : problème sur les réseaux arithmétiques
+
+Ainsi les algorithmes à clé publique sont essentiellement utilisés :
+	►pour chiffrer des clés symétriques qui à leur tour seront utilisées pour chiffrer les
+ données pour la confidentialité (système hybride : voir point suivant) ;
+	► pour signer des messages pour garantir la non répudiation ;
+	► pour construire des protocoles (authentification, identification, partage de secrets,...) ;
+
+			TP Cryptosystème RSA sous maple
+			generer 2 entiers premiers p et q
+			calculer n=pq(module RSA) et fi(n)=(p-1)(q-1)le nombre d'euler
+			generer un entier e<fi(n) tq pgcd(e,fi(n))=1
+			calculer d=e(exp(-1))mod fi(n)
+			cle publique=(e,n)
+			cle prive=(d,n)
+			algorithme de chiffrement
+			soit m E Z/nZ le message
+			prendre cle publique(e,n)
+			calculer c=m(expo(e))mod n
+			le chiffre de m est c.
+			Algorithm de dechiffrement
+			soit cE Z/nZ le chiffre recu
+			prendre la cle privee(d,n)
+			calculer m=c(exp(d))modn
+
+			shema de systeme de cryptographie hybride
+
+				Signature numerique
+la signature ne garanti pas  la confidentialite
+
+Elles permettent notamment :
+► de vérifier l’auteur ;
+► la date et l’heure de la signature ;
+► d’authentifier le contenu d’un message ;
+► et peuvent être vérifiées par des tiers pour résoudre des conflits.
+
+Une signature (digitale-manuelle ou numérique-cryptographique) est un procédé, qui, appliqué
+à un message, garantit la non répudiation par le signataire et donc réalise les deux objectifs
+suivants :
+1. identification unique du signataire,
+2. et preuve d’accord sur le contenu du document.
+
+Elle doit posséder les propriétés suivantes :
+	1. unique : dépendre du message signé ( employer une information unique propre à l’expé-
+diteur pour empêcher la contrefaçon et le démenti ).
+	2. impossible à usurper : c’est à dire être mathématiquement infaisable à forger (par construction de nouveaux messages pour une signature numérique existante, ou par construction
+d’une signature numérique frauduleuse pour un message donné).
+	3. impossible à répudier par son auteur.
+	4. facile à vérifier (reconnaitre) par un tiers.
+	5. être relativement facile à générer (produire) et à stocker. .
+
+ Signature numérique et Signature manuelle
+ On a vu les 5 points communs entre les signatires manuelle et numérique dans la première
+définition. Ici on regarde les différences.
+	♀ Signature manuelle
+1. Associé physiquement au document signé ;
+2. Identique pour tous les documents venant d’un même signataire ;
+3. Habituellement à la dernière page.
+	♀ Signature numérique
+1. Peut être stockée et envoyée indépendamment du document signé ;
+2. Fonction du document même si le signataire signe avec la même clé privée
+3. Couvre l’entièreté du document (dépend de tout le message)
+
+ Signature numérique : Définition
+ Données ajoutées à une unité de données ou transformation cryptographie
+ d’une unité de données, permettant à un destinataire de vérifier la source et l’intégrité
+  de l’unité de données,garantissant la non répudiation et protégeant contre la contrefaçon.
+
+Signature numérique : Modélisation (première version)
+Un système de signature est composé d’un quintuplet (P; S; Sk0; Vk; K) où :
+1. P est un ensemble appelé espace des textes clairs ;
+2. S est un ensemble appelé espace des signatures ;
+3. S(k'en indice) : P --> S est une fonction injective dite fonction de signature (non nécessairement bijective)
+qui dépend d’un paramètre k0 appelé clé privée.
+4. Vk : PxS --> {vrai,faux} est la fonction de vérification de signature binaire telle que Vk(m; s) =
+vrai si et seulement si Sk'(m) = s (dépendant de la clé publique k) .
+5. K l’ensemble des paramètres utilisés est l’espace des clés.
+
+Signature numérique : Problème d’intégrité
+---> La signature, telle que présentée jusqu’à présent, ne garantit pas l’intégrité (qu’elle
+soit manuelle ou numérique).
+I Dans le cas manuelle c’est l’observation et l’analyse du document qui permet de croire ou de
+s’assurer que le texte n’a pas été modifié.
+I Dans le cas numérique ; Pour résoudre ce problème :
+	☻ Le massagge est haché avant d’être signé pour garantir l’intégrité.
+	☻ La fonction de hachage ne doit pas être homomorphique.
+
+Une signature numérique doit fournir les services :
+☻ d’authentification (de l’origine des données) ;
+☻ de leur intégrité ;
+☻ et de non répudiation (pour le signataire).
+
+ Signature numérique : Modélisation (deuxième version)
+Un système de signature avec appendice est composé d’un 6-tuplet (P; H; S; Sk0; Vk; K) où :
+1. P est un ensemble appelé espace des textes clairs ;
+2. S est un ensemble appelé espace des signatures ;
+3. h : P ! H une fonction de hachage ;
+4. Sk0 : H ! S est une fonction injective dite fonction de signature (non nécessairement bijective)
+qui dépend d’un paramètre k0 appelé clé privée ;
+5. Vk : PxS ! fvrai; fauxg est la fonction de vérification de signature binaire telle que Vk(m; s) =
+vrai si et seulement si Sk0h(m) = s (dépendant de la clé publique k) ;
+6. K l’ensemble des paramétres utilisés est l’espace des clés.

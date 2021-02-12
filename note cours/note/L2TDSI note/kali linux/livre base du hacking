@@ -1,0 +1,115 @@
+Les tests
+d’intrusion par boîte blanche, ou "transparents", sont très rigoureux et
+complets. L’objectif d’un tel test est d’examiner le système ou le réseau
+cible dans ses moindres recoins.
+
+Les tests d’intrusion par boîte noire, ou "cachés", se fondent sur une
+stratégie radicalement différente. Un tel test constitue une simulation
+beaucoup plus réaliste d’une attaque menée par un pirate expérimenté
+pour obtenir un accès au système ou au réseau cible. Il met de côté la
+rigueur et la possibilité de détecter de multiples vulnérabilités pour
+privilégier la discrétion et la précision. Dans ce cas, le testeur se
+contentera de trouver une seule vulnérabilité qu’il pourra exploiter.
+
+pour lancer l'interface graphique: "startx"
+
+La suite de cet ouvrage examinera et présentera les étapes suivantes :
+reconnaissance, scan, exploitation et postexploitation (ou maintien
+d’accès).
+Méthodologie des tests d’intrusion en pente douce (ZEH, Zero Entry
+Hacking)
+
+►	La première étape de
+tout test d’intrusion est une "reconnaissance". Elle a pour objectif le
+recueil d’informations sur la cible. Nous l’avons mentionné
+précédemment, plus nous disposons d’informations sur la cible, plus nos
+chances de succès lors des étapes ultérieures sont élevées. La
+reconnaissance fait l’objet du Chapitre 2.Quelles que soient les données dont nous disposions au départ, au terme
+de la phase de reconnaissance nous devons posséder une liste d’adresses
+IP à scanner.
+
+►La deuxième étape de notre méthodologie se décompose en
+deux activités distinctes. La première correspond au scan des ports.
+Après que cette opération est terminée, nous avons une liste des ports
+ouverts et des services potentiels qui s’exécutent sur chaque cible. La
+seconde activité concerne le scan des vulnérabilités. Il s’agit de localiser
+et d’identifier des faiblesses précises dans les logiciels et les services qui
+s’exécutent sur les cibles
+
+►En sachant précisément quels ports sont ouverts sur la
+cible, quels services s’exécutent sur ces ports et quelles vulnérabilités
+sont associées à ces services, nous pouvons lancer une attaque. Cette
+phase correspond à ce que la plupart des débutants associent au hacking
+"réel". L’exploitation peut impliquer nombre de techniques, d’outils et de
+codes.
+
+
+////////////////////////////////------1- RECONNAISSANCE------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+importance de cette phase
+Abraham Lincoln :
+"Que l’on me donne six heures pour couper un arbre, j’en passerai quatre
+à préparer ma hache."
+
+	►La reconnaissance active demande une interaction directe avec la cible.
+Notez que, au cours de ce processus, la cible peut enregistrer votre
+adresse IP et consigner vos actions. Elles ont donc de fortes chances
+d’être détectées, même si vous tentez de réaliser un test d’intrusion de
+façon furtive.
+	►La reconnaissance passive se fonde sur les informations disponibles sur le
+Web. Au cours de ce travail, nous n’interagissons pas directement avec
+la cible, qui n’a donc aucun moyen de connaître, d’enregistrer ou de
+consigner nos actions.
+
+//installation de httrack pour fouiller le site en local au lieu de balader dans le serveur de la cible
+apt-get install httrack
+
+//OPERATEUR GOOGLE
+◄ 	Pour utiliser un opérateur Google, nous devons indiquer les trois éléments
+suivants :
+1. le nom de l’opérateur ;
+2. des deux-points ;
+3. le terme à utiliser dans l’opérateur.
+exemple: "site:dsu.edu pat engebretson"
+
+◄ 	Les opérateurs intitle: et allintitle: sont également très intéressants. En les
+ajoutant à une recherche, seuls les sites web dont les titres des pages
+comprennent les termes indiqués sont retournés. Avec allintitle:, seuls les
+sites dont les titres des pages comprennent tous les termes sont retournés.
+Avec l’opérateur intitle:, les pages dont les titres comprennent au moins
+l’un des termes saisis sont retournées
+
+◄	Si nous voulons rechercher les sites dont les URL comprennent des mots
+précis, nous avons à notre disposition l’opérateur inurl:. Nous pouvons par
+exemple émettre la commande suivante pour localiser des pages
+potentiellement intéressantes sur la cible :
+inurl:admin
+
+Le hacking Google est parfois appelé "Google Dork". Lorsqu’une
+application souffre d’une vulnérabilité précise, les hackers et les
+chercheurs en sécurité placent généralement un Google Dork dans
+l’exploit, ce qui nous permet de rechercher des versions vulnérables en
+utilisant Google
+Rendez-vous à l’URL http://www.exploit-db.com
+Voici une autre recherche qui pourra produire des informations
+intéressantes :
+inurl:login
+Elle peut également se faire avec les termes suivants :
+Logon
+Signin
+Signon
+ForgotpasswordForgot
+Reset
+
+les furums d'aide
+
+The Harvester
+Pendant la phase de reconnaissance, l’outil The Harvester se révélera
+très utile. Il s’agit d’un simple script Python très efficace écrit par
+Christian Martorella chez Edge Security. 
+	#pour l'ouvrir
+theharvester
+	#lancer une commande
+theharvester –d syngress.com –l 10 –b google
+
+
+

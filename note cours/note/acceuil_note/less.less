@@ -1,0 +1,151 @@
+//INSTALLATION DE LESS
+					Utiliser avec Node.js:
+
+npm install -g less
+> lessc styles.less styles.css 
+
+					Ou le navigateur:
+
+<link rel="stylesheet/less" type="text/css" href="styles.less" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js" ></script>
+
+
+<!-- Utilise CSS -->
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!-- Utilise LESS -->
+<link rel="stylesheet/less" type="text/css" href="styles.less">
+Enfin, vous devez rajouter, après vos <link rel="stylesheet/less" />, la ligne suivante (c’est important) :
+
+<!-- Changez la source par la position réelle du fichier chez vous -->
+<script src="less.js" type="text/javascript"></script>
+
+/* Déclaration */
+@blue: #17B6FF;
+@magenta: #FF17B6;
+@lime: #B6FF17;
+@green: #1BFF17;
+
+/* Utilisation */
+#header { background: @blue; }
+#footer { background: @magenta; }
+LESS générera le CSS suivant :
+
+#header { background: #17B6FF; }
+#footer { background: #FF17B6; }
+
+//Classes abstraites
+//--------------------------------------------------------------------------------------
+/* Définition de la classe .border-radius */
+.border-radius {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Utilisation de .border-radius comme d’une classe abstraite */
+#foo {
+  .border-radius;
+  /* etc. */
+}
+
+/* CSS généré : */
+#foo {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  /* etc. */
+}
+//--------------------------------------------------------------------------------------------//
+ Et si nous transmettions des paramètres à notre classe abstraite ?
+ //----------------------------------------------------------------------
+/* Définition de la classe .border-radius avec un paramètre */
+.border-radius(@radius) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+/* Utilisation de .border-radius comme une classe abstraite */
+#foo {
+  .border-radius(10px);
+  /* etc. */
+}
+
+/* CSS généré : */
+#foo {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  /* etc. */
+}
+//--------------------------------------------------------------------------------------//
+LESS permet aussi d’utiliser des valeurs par défaut pour les paramètres :
+//-----------------------------------------------------------------------
+/* Définition de la classe .border-radius avec un paramètre optionnel */
+.border-radius(@radius: 10px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+/* Utilisation de .border-radius comme une classe abstraite */
+#foo {
+  .border-radius(10px);
+  /* – ou bien – */
+  .border-radius;
+  /* etc. */
+}
+
+/* CSS généré : */
+#foo {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  /* etc. */
+}
+//----------------------------------------------------------------------------------------------//
+
+//Imbrication
+/---------------------------------------------------------------
+/* LESS */
+#foo {
+  background: lemon;
+  bar { color: lightblue; }
+  baz { color: orange; }
+}
+
+/* CSS généré */
+#foo { background: lemon; }
+#foo bar { color: lightblue; }
+#foo baz { color: orange; }
+//----------------------------------------------------------------------------------------------//
+/--------------------------------------------------------------
+/* LESS */
+#foo {
+  background: lightgrey;
+  &:hover { color: orange; }
+}
+
+/* CSS généré */
+#foo { background: lightgrey; }
+#foo:hover { color: orange; }
+
+
+//---------------------------------------------------------------------------------------------//
+//Opérations
+LESS est capable d’effectuer des opérations. C’est très pratique, puisque vous gagnez du temps encore une fois. Exemple :
+/--------------------------------------------------------------------
+@size_image: 100px;
+
+.box {
+  width: @size_image + 10px;
+  height: @size_image + 10px;
+
+  img {
+    width: @size_image;
+    height: @size_image;
+  }
+}
+//-------------------------------------------------------------------------------------------//
+

@@ -1,0 +1,35 @@
+Moussa DIEDHIOU
+776775529
+moussadiedhiou82@gmail.com //de preference
+moussa.diedhiou@majorel.ma
+service reseau lundi 18h30 voire 19h00
+securite des SI ---mercredi  18h30  19h00
+2 devoirs (ecrits +tp a rendre)
+examen (theorie + pratique)
+certificat =authentification et confidentialite
+
+Un reseau est un systeme permettant a plusieurs machines(ordinateur,serveurs) d'echanger des informations
+
+Reseau LAN : petits reseaux locaux restreint a une maison ou une entreprise
+WLAN un ensemble de reseau LAN
+Reseau MAN : reseau reparti sur une surface moyenne generalement a la taille d'une ville ou d'un campus
+
+Caracteristique du resau LAN    
+    support physique
+    type de reseau
+    bande passante
+    protocoles de communication
+    systeme d'exploitation
+    elements d'interconnexion 
+
+Une adresse MAC est une adresse unique que possede chaque carte reseau vendu sur le marché
+
+Recherche 
+SDN, SD-WLANCloud computing 
+AWS
+Oracle cloud DeVops
+DevSeeOps
+OpenStack
+tails 3
+Ansible
+BYOD
