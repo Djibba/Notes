@@ -116,3 +116,42 @@ il permet de lier une cle publique a un
 la signature ne garanti pas  la confidentialite
 
 		le protocol ssl
+--------------------------------CRYPTO MASTER ---------------------------
+
+On a deux principe de chiffrement
+	le principe de la substitution
+	le principe de la transposition
+
+--le principe de la substitution : Remplacement des unités clairs en unités secretes et souvent toujours les mêmes
+--le principe de transposition : c'est le melange des unités clairs pour obtenir des unités secretes. 
+
+la methode de chiffrement indique la manière de chiffrer et de dechiffrer
+
+Les méthodes de substitution pure : 
+	les substitutions mono alphabetiques
+	les substitutions poly alphabetiques
+les méthodes de transpsition pure : 
+	les méthodes de transpsition simples
+	les méthodes double transpsition
+
+Un cryptosysteme ou systeme de chiffrement : c'est l'application de l'algorithme avec toutes les clés. Autrement dit c'est la données des parametres suivants:
+	C = {X, Y, K, E, D}
+		X ensemble de tous les messages clairs (X1,X2,...,Xn)
+		Y ensemble de tous les messages chiffrés (Y1,Y2,...,Yn)
+		K espace des clés possibles (K1,K2,...,Kn)
+		E ensemble des fonctions de chiffrement (E(k1),E(k2),...,E(Kn))
+		D ensemble des fonctions de dechiffrement (D(k1),D(K2),...,D(Kn))
+
+Un réseau de chiffrement est un ensemble de correspondants utilisant les mêmes systemes de chiffrement et qui échangent entre eux des messages chiffrés
+
+Une fonction à sens unique est une fonction facile à calculer dans un sens mais l'inverse est impossible sauf en matiere de cryptographie, ce type de fonction
+est très utile, à condition qu'il existe un moyen secret y qui à partir de f(x) permet de determiner x. Il s'agit alors de fonction à sens unique à breche secrete
+
+Une fonction de hachage est une fonction à sens unique qui produit un résumé (une emprunte) d'un message qui ne peut pas être inversé pour produire l'original
+
+Un protocole cryptographique est un ensemble de regles ou conventions definissant un échange de messages, généralement chiffrés, entre deux ou plusieus correspondants
+Ex : PGP, SSL/TLS, SSH, IPSEC 
+
+NB: dans le chiffrement par decallage, la sécurité cryptographique est tres faible parce qu'il peut être decrypter facilement par la recherche exhaustivedes clés.
+	il suffit de decaler le cryptogramme jusqu'à l'apparition du clair. On en deduit le parametre secrete (k ou decalage)
+

@@ -15,6 +15,12 @@ Inconveniants
 	-peu securise
 	-non evolitif
 	-tous les perif peuve servir a la fois de client et de serveur
+Sur windows : 
+	1- point 3 => donne l'ip de l'imprimante
+	2- \\ip\"nom de partage de l'imprimante"
+		\\nom bios\nom partage imprimante
+		\\nom ordi \nom partage imprimante
+
 Composants d'un réseau
 Les composants d'un réseau se classent en trois catégories :
  Les périphériques (ou le matériel)
@@ -44,8 +50,7 @@ facilement gerable pour les envoyer sur le reseau.
  entre elle sur le reseau
 				Fournisseur d'accés a internet
 @INTERNET POINT-ARC INFORMATIQUE-CONNEXION SANS FRONTIERE
-attentes des utilisateurs :
- Tolérance aux pannes
+sudo apt-get dist-upgrade Tolérance aux pannes
  Évolutivité
  Qualité de service (gerer par le routeur)veille a ce que les priorites correspond au type  de la communication et a son importance pour l'entreprise
  Sécurité
