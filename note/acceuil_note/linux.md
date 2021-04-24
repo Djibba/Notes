@@ -15,35 +15,36 @@
 - id : Affichage des informations d'identité d'un utilisateur.
 - groups : Affichage des groupes auxquels appartient un utilisateur.
 - finger : Affichage des informations disponibles sur un utilisateur.
-  Utilisateurs référencés stockés dans le fichier /etc/passwd
-  Dans le fichier /etc/shadow, une ligne par utilisateur décrit par neuf champs séparés par des ':' :
-  login (en clair),
-  mot de passe (crypté),
-  date de dernière modification du mot de passe (en jours depuis le 1er janvier 1970),
-  délai avant la prochaine modification possible après un changement de mot de passe (en jours),
-  délai avant l'obligation de changer de nouveau de mot de passe après un changement sinon expiration du compte (en jours),
-  délai d'avertissement avant une modification obligatoire,
-  délai avant désactivation après une expiration,
-  date de désactivation,
-  reservé
 
-* "adduser new_user_name" // ajouter un utilisateur
-* "passwd user_name" //permet de changer le mot de pass de l'utilisateur passer en paramètre
+Utilisateurs référencés stockés dans le fichier /etc/passwd
+Dans le fichier /etc/shadow, une ligne par utilisateur décrit par neuf champs séparés par des ':' :
+ogin (en clair),
+mot de passe (crypté),
+date de dernière modification du mot de passe (en jours depuis le 1er janvier 1970),
+délai avant la prochaine modification possible après un changement de mot de passe (en jours),
+délai avant l'obligation de changer de nouveau de mot de passe après un changement sinon expiration du compte (en jours),
+délai d'avertissement avant une modification obligatoire,
+délai avant désactivation après une expiration,
+date de désactivation,
+reservé
+
+- "adduser new_user_name" // ajouter un utilisateur
+- "passwd user_name" //permet de changer le mot de pass de l'utilisateur passer en paramètre
   NB:"passwd" //sans paramètre modifie le mot de pass de l'utilisateur actif
-* "deluser user_name"// permet de supprimer un utilisateur
-* "deluser --remove-home user_name"// supprimer aussi son home et tous ses fichiers personnels
+- "deluser user_name"// permet de supprimer un utilisateur
+- "deluser --remove-home user_name"// supprimer aussi son home et tous ses fichiers personnels
   NB: "adduser" et "deluser" sont des commandes qui n'existent que sous Debian et tous ses descendants, dont Ubuntu.
   Partout ailleurs on doit utiliser useradd et userdel, qui sont les commandes Unix traditionnelles fonctionnant
   partout. Elles font globalement la même chose mais de manière beaucoup plus basique : si vous n'appelez pas passwd
   vous-mêmes, le compte ne sera pas activé et n'aura pas de mot de passe.
   lorsqu'on fait un "ls-l" la 3ème colonne indique le propriétaire du fichier ou dossier ; la 4ème indique le groupe qui possède ce fichier
   ou dossier.
-* "addgroup group_name"// créer un groupe
-* "usermod" :// modifier un utilisateur
-* "usermod -g amis patrick"//change de groupe.(permet de mettre patrick dans le groupe amis)
+- "addgroup group_name"// créer un groupe
+- "usermod" :// modifier un utilisateur
+- "usermod -g amis patrick"//change de groupe.(permet de mettre patrick dans le groupe amis)
   Ajouter un administrateur à un groupe :
 
-* gpasswd -a utilisateur groupe
+- gpasswd -a utilisateur groupe
 
 Enlever le mot de passe d'un groupe :
 
