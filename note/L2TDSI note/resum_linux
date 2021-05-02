@@ -1,5 +1,5 @@
 								CHAPITRE 1
-Le shell est un programme qui s’exécute quand un utilisateur se logue à la machine
+Le shell est un programme qui s’exécute quand un utilisateur se loge à la machine
 Unix. Il est chargé de:
 ✓ Présenter le prompt spécifique à l’utilisateur,
 ✓ Envoyé les commandes (instructions) de l’utilisateur au système

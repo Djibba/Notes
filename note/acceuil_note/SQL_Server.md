@@ -138,9 +138,50 @@ Remarque :
 Une banque de la place veut réaliser une application pour la gestion de ses comptes clients. Pour ce faire la banque donne l'opportinueté au client d'ouvrir un compte, d'y déposer de l'argent, d'y retire de l'argent et meme de fermer le compte. Un client de la banque est caractérisé par un nom, un prenom, une date de naissance, un lieu de naissance, un numero de telephone, un email et son adresse. Un client possede un ou plusieurs comptes et un compte a un numero et un solde. Un compte est typé :
 
 - compte courant possedant un decouvert
-- un compte epargne
+- un compte epargne 
 
-Questions
+### Creation d'une base de données
+
++ Syntaxe 1 : `Create database nom_db;`
+          `Go ... un separateur`
+Exemple: `create database gestion_ventes;`
+          `Go`
++ Syntaxe 2: `
+              create database nom_db
+              --creation du fichier primaire
+              ON PRIMARY(
+                name = nom_logique,
+                filename = 'chemin/*mdf',
+                size = taille(ko,Mo,Go),
+                maxsize = taillemax,
+                filegrowth = pas d'incrementation
+              )
+              --creation du fichier log
+              LOG ON (
+                name = nom_logique,
+                filename = 'chemin/*ldf,
+                size = taille defaut,
+                maxsize = taillemaximale,
+                filegrowth = pas d'incrementation
+              )
+              collate french_ci_as
+              Go`
+
+--Positionnement sur la base de données
+Syntaxe : `USE nom_db`
+--GO 
+
+Exercice : Creer les tables suivantes:
++ client(numClient, nomClient, prenomClient,adresseClient, email, tel)
++ commande(numCom, quantiteCom, dateCom, numClient, numVentes)
++ article(numArt, designation, pu,quantiteStock, numCom)
++ ventes(numVentes, quantiteVente, )
++ (2) Alimenter la base de données en ajoutant des enregistrements dans les 
++ (3) Gerer toutes les autoincrementation
++ Solutions </br>
+-----------------
+Pour se connecter on tape la commande : `sqlcmd -S localhost -U SA -P '<YourPassword>'` </br>
+Questions 
 
 - Donner le dictionnaire de données correspondant au cahier de charges
 - Identifier les associations et les cardinalités
