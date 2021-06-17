@@ -98,3 +98,82 @@ R1(config)#username djibba
 R1(config)#username djibba secret djibba
 R1(config)#service pass
 R1(config)#service password-encryption
+
+
+n° port     Protocole     Service associé
+20             tcp          ftp-data - File Transfer Protocol
+21             tcp          ftp - File Transfer Protocol (le flux de contrôle pour le transfert de fichiers)
+22             tcp          SSH - Secure Shell
+23             tcp          Telnet
+25             tcp          SMTP - Simple Mail Transfer Protocol (sans authentification)
+53             udp          DNS - Domain Name Service
+67             udp          DHCP (Client) - Dynamic Host Configuration Protocol
+68             udp          DHCP (Serveur) - Dynamic Host Configuration Protocol
+69             udp          tftp - Trivial File Transfer
+80             tcp          HTTP - Hypertext Transfer Protocol
+110            tcp          pop3 - Post Office Protocol v3
+123            udp          ntp - Network Time Protocol
+137            tcp          netbios-ns - NETBIOS Name Service
+143            tcp          imap4 - Internet Message Access Protocol v4
+161            udp          SNMP - Simple Network Management Protocol
+162            udp          SNMPtrap - Simple Network Management Protocol Trap
+389            tcp          LDAP - Lightweight Directory Access Protocol
+443            tcp          https - HyperText Transfer Protocol Secure
+445            tcp          CIFS - Common Internet File System (SMB - Samba)
+546            udp          DHCPv6 - Dynamic Host Configuration Protocol v6
+993            tcp          IMAPS
+995            tcp          POP3S
+1433           tcp          Microsoft SQL Server
+1521           tcp          Oracle SQL
+3306           tcp          MySQL
+5432           tcp          PostgreSQL
+5900           tcp          VNC Server
+6667           tcp          IRC
+
+-----------------------------------------------------------------
+--Les access list
+
+Cette fonctionnalité Cisco IOS est utile pour :
+
+    les fonctions de pare-feu
+    le marquage du trafic, QoS
+    les configurations NAT
+    le contrôle des logs
+    le contrôle des accès aux consoles virtuelles (VTY)
+    le contrôle des informations de routage
+    le contrôle du trafic SNMP, …
+
+Une liste simple (standard) et l’autre plus complexe (étendue).
+
+    Standard : uniquement adresse IPv4 source
+    Étendue :
+        protocole IPv4, ICMPv4, TCP, UDP, ESP, AH, … ou IPv6 et supérieurs
+        origine et destination
+        ports ou types de messages
+Les ACLs standard n’existent plus en IPv6.
+
+-Access list standard
+Router(config)#access-list numéro-liste-accès {deny|permit} adresse-source [masque-source] [log]
+
+-Access list etendu
+Router(config)#access-list numéro-liste-accès {deny|permit} protocole adresse-source masque-source [opérateur port] adresse-destination masque-destination [opérateur port] [log]
+Où protocole (IPv4) peut être :
+    <0-255> An IP protocol number
+    ahp Authentication Header Protocol
+    eigrp Cisco’s EIGRP routing protocol
+    esp Encapsulation Security Payload
+    gre Cisco’s GRE tunneling
+    icmp Internet Control Message Protocol
+    igmp Internet Gateway Message Protocol
+    ip Any Internet Protocol
+    ipinip IP in IP tunneling
+    ospf OSPF routing protocol
+    tcp Transmission Control Protocol
+    udp User Datagram Protocol
+
+IPv4 standard : 1 - 99 et 1300 - 1999
+IPv4 étendue : 100 - 199 et 2000 - 2699
+
+exemple
+access-list 102 deny tcp any any eq 23
+access-list 102 permit ip any any
